@@ -1,68 +1,4 @@
-import { Routes, Route, Suspense, lazy } from "react-router-dom";
-import Navbar from "./components/navbar.component";
-import UserAuthForm from "./pages/userAuthForm.page";
-import { createContext, useEffect, useState } from "react";
-import { lookInSession } from "./common/session";
-import Editor from "./pages/editor.pages";
-import HomePage from "./pages/home.page";
-import SearchPage from "./pages/search.page";
-import PageNotFound from "./pages/404.page";
-import ProfilePage from "./pages/profile.page";
-import SideNav from "./components/sidenavbar.component";
-import ChangePassword from "./pages/change-password.page";
-import EditProfile from "./pages/edit-profile.page";
-import Notifications from "./pages/notifications.page";
-
-// Lazy load BlogPage
-const BlogPage = lazy(() => import("./pages/blog.page"));
-
-export const UserContext = createContext({});
-export const ThemeContext = createContext({});
-
-const darkThemePreference = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-const App = () => {
-  const [userAuth, setUserAuth] = useState({});
-  const [theme, setTheme] = useState(() => (darkThemePreference() ? "dark" : "light"));
-
-  useEffect(() => {
-    let userInSession = lookInSession("user");
-    let themeInSession = lookInSession("theme");
-    userInSession ? setUserAuth(JSON.parse(userInSession)) : setUserAuth({ access_token: null });
-
-    if (themeInSession) {
-      setTheme(() => {
-        document.body.setAttribute('data-theme', themeInSession);
-        return themeInSession;
-      });
-    } else {
-      document.body.setAttribute('data-theme', theme);
-    }
-  }, []);
-
-  return (
-    <UserContext.Provider value={{ userAuth, setUserAuth }}>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <Navbar />
-        <SideNav />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/auth" element={<UserAuthForm />} />
-            <Route path="/editor" element={<Editor />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/blogs" element={<BlogPage />} /> {/* Lazy loaded BlogPage */}
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </Suspense>
-      </ThemeContext.Provider>
-    </UserContext.Provider>
-  );
-};
-
-export default App;
-/*import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/navbar.component";
 import UserAuthForm from "./pages/userAuthForm.page";
 import { createContext, useEffect, useState } from "react";
@@ -143,4 +79,4 @@ const App = () => {
 
 }
 
-export default App;*/
+export default App;
