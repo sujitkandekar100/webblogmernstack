@@ -10,7 +10,7 @@ const BlogPostCard = ({ content, author }) => {
     return (
         <Link to={`/blog/${id}`} className="flex flex-col border border-grey p-4 rounded-md mb-4 w-full max-w-[70%]">
             <div className="w-full">
-                <img src={banner} className="w-full h-44 rounded-md object-cover" alt="Blog Banner" />
+                <img src={banner} className="w-full h-[10.5rem] rounded-md object-cover" alt="Blog Banner" />
             </div>
 
             <div className="w-full mt-4">
