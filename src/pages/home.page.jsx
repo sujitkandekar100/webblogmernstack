@@ -23,7 +23,7 @@ const HomePage = () => {
         "cooking",
         "tech",
         "finance",
-        "travel",
+        "tr",
     ];
 
     const fetchLatestBlogs = ({ page = 1 }) => {
