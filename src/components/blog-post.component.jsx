@@ -8,6 +8,11 @@ const BlogPostCard = ({ content, author }) => {
 
     return ( 
         <Link to={`/blog/${id}`} className="flex gap-8 items-center border-b border-grey pb-5 mb-4 hover:scale-105  w-full max-w-[50%] hover:shadow-lg transition duration-300">
+             <div className="h-32 aspect-square bg-grey">
+                <div className="w-full">
+                <img src={banner} className="w-full h-24 rounded-md object-cover" alt="Blog Banner" />
+            </div>
+            </div>
             <div className="w-full">
                 <div className="flex gap-2 items-center mb-7">
                     <img src={profile_img} className="w-8 h-8 rounded-full" alt={`${fullname}'s profile`} />
@@ -28,9 +33,7 @@ const BlogPostCard = ({ content, author }) => {
                 </div>
             </div>
             
-            <div className="h-32 aspect-square bg-grey">
-                <img src={banner} className="w-full h-full object-cover" alt="Blog Banner" />
-            </div>
+           
         </Link>
     );
 }
