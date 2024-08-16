@@ -8,9 +8,9 @@ const BlogPostCard = ({ content, author }) => {
     let { fullname, profile_img, username } = author;
 
     return (
-        <Link to={`/blog/${id}`} className="flex flex-col border border-grey p-2 rounded-md mb-4 w-full max-w-[50%]">
+        <Link to={`/blog/${id}`} className="flex flex-col border border-grey p-2 rounded-md mb-4 w-full max-w-[48%] sm:max-w-[45%] md:max-w-[30%] lg:max-w-[23%]">
             <div className="w-full">
-                <img src={banner} className="w-full h-24 rounded-md object-cover" alt="Blog Banner" />
+                <img src={banner} className="w-full h-24 rounded-md object-cover sm:h-28 md:h-32 lg:h-36" alt="Blog Banner" />
             </div>
 
             <div className="w-full mt-2">
@@ -20,9 +20,9 @@ const BlogPostCard = ({ content, author }) => {
                     <p className="min-w-fit text-xs text-grey">{getDay(publishedAt)}</p>
                 </div>
 
-                <h1 className="blog-title text-lg font-bold">{title}</h1>
+                <h1 className="blog-title text-lg font-bold line-clamp-2 sm:text-base md:text-lg lg:text-xl">{title}</h1>
 
-                <p className="my-2 text-sm font-gelasio leading-5 text-grey line-clamp-2">{des}</p>
+                <p className="my-2 text-sm font-gelasio leading-5 text-grey line-clamp-2 sm:text-xs md:text-sm lg:text-base">{des}</p>
 
                 <div className="flex gap-4 mt-2">
                     <span className="btn-light py-1 px-3 rounded-md bg-light-grey text-dark-grey text-xs">{tags[0]}</span>
