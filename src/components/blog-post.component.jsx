@@ -7,7 +7,7 @@ const BlogPostCard = ({ content, author }) => {
     let { fullname, profile_img, username } = author;
 
     return ( 
-        <Link to={`/blog/${id}`} className="flex gap-8 items-center border-b border-grey pb-5 mb-4 hover:scale-105  w-full max-w-[50%] hover:shadow-lg transition duration-300">
+        <Link to={`/blog/${id}`} className="mx-auto flex gap-8 items-center border-b border-grey pb-5 mb-4 hover:scale-105  w-full max-w-[50%] hover:shadow-lg transition duration-300">
              <div className="h-32 aspect-square bg-grey">
                 <div className="w-full">
                 <img src={banner} className="w-full h-24 rounded-md object-cover" alt="Blog Banner" />
