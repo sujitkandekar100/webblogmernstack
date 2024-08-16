@@ -111,25 +111,21 @@ const HomePage = () => {
                             {blogs == null ? (
                                 <Loader />
                             ) : blogs.results.length ? (
-                                <div className="flex flex-wrap gap-4">
-                                    {blogs.results.map((blog, i) => {
-                                        return (
-                                            <AnimationWrapper
-                                                transition={{
-                                                    duration: 1,
-                                                    delay: i * 0.1,
-                                                }}
-                                                key={i}
-                                            >
-                                                <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-                                                    <BlogPostCard
-                                                        content={blog}
-                                                        author={blog.author.personal_info}
-                                                    />
-                                                </div>
-                                            </AnimationWrapper>
-                                        );
-                                    })}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                                    {blogs.results.map((blog, i) => (
+                                        <AnimationWrapper
+                                            transition={{
+                                                duration: 1,
+                                                delay: i * 0.1,
+                                            }}
+                                            key={i}
+                                        >
+                                            <BlogPostCard
+                                                content={blog}
+                                                author={blog.author.personal_info}
+                                            />
+                                        </AnimationWrapper>
+                                    ))}
                                 </div>
                             ) : (
                                 <NoDataMessage message="No blogs published" />
@@ -149,17 +145,15 @@ const HomePage = () => {
                             <h1 className="font-medium text-xl mb-8">Stories from all interests</h1>
 
                             <div className="flex gap-3 flex-wrap">
-                                {categories.map((category, i) => {
-                                    return (
-                                        <button
-                                            onClick={loadBlogByCategory}
-                                            className={"tag " + (pageState === category ? " bg-black text-white " : " ")}
-                                            key={i}
-                                        >
-                                            {category}
-                                        </button>
-                                    );
-                                })}
+                                {categories.map((category, i) => (
+                                    <button
+                                        onClick={loadBlogByCategory}
+                                        className={"tag " + (pageState === category ? " bg-black text-white " : " ")}
+                                        key={i}
+                                    >
+                                        {category}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
@@ -172,19 +166,17 @@ const HomePage = () => {
                             {trendingBlogs == null ? (
                                 <Loader />
                             ) : trendingBlogs.length ? (
-                                trendingBlogs.map((blog, i) => {
-                                    return (
-                                        <AnimationWrapper
-                                            transition={{
-                                                duration: 1,
-                                                delay: i * 0.1,
-                                            }}
-                                            key={i}
-                                        >
-                                            <MinimalBlogPost blog={blog} index={i} />
-                                        </AnimationWrapper>
-                                    );
-                                })
+                                trendingBlogs.map((blog, i) => (
+                                    <AnimationWrapper
+                                        transition={{
+                                            duration: 1,
+                                            delay: i * 0.1,
+                                        }}
+                                        key={i}
+                                    >
+                                        <MinimalBlogPost blog={blog} index={i} />
+                                    </AnimationWrapper>
+                                ))
                             ) : (
                                 <NoDataMessage message="No trending blogs" />
                             )}
