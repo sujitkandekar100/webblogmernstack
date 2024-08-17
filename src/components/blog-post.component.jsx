@@ -4,10 +4,10 @@ const BlogPostCard = ({ content, author }) => {
     let { title, des, banner, tags, activity: { total_likes }, blog_id: id } = content;
 
     return (
-        <Link to={`/blog/${id}`} className="w-full shadow-md rounded-lg bg-white flex flex-col items-start justify-start">
+        <Link to={`/blog/${id}`} className="w-full shadow-md rounded-lg bg-white flex flex-col items-start justify-start w-[274px] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] rounded-[8px] bg-[#fff] flex flex-col items-start justify-start text-left text-[14px] text-[#000] f">
             {/* Image Section */}
             <img
-                className="w-full h-56 rounded-t-lg object-cover"
+                className="w-full h-56 rounded-t-lg object-cover self-stretch rounded-t-[8px] rounded-b-[0px] max-w-full overflow-hidden h-[154px] shrink-0 object-cover"
                 loading="lazy"
                 alt={title}
                 src={banner}
@@ -32,7 +32,7 @@ const BlogPostCard = ({ content, author }) => {
                 
                 <p className="text-sm text-gray-700 mt-2">{des}</p>
                 
-                <button className="mt-4 py-2 px-4 bg-gray-100 text-black rounded-lg self-center">
+                <button className="="w-[56px] relative leading-[28px] font-medium flex items-center justify-center h-[12px] ">
                     Try it out
                 </button>
             </div>
