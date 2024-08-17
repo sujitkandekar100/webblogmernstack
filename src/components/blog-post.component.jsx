@@ -9,6 +9,9 @@ const BlogPostCard = ({ content, author }) => {
 
     return ( 
         <Link to={`/blog/${id}`} className="flex gap-8 items-center border-b border-grey pb-5 mb-4">
+             <div className="h-28 aspect-sqaure bg-grey">
+                <img src={banner} className="w-full h-full aspect-square object-cover" />
+            </div>
             <div className="w-full">
                 
                 <h1 className="blog-title">{title}</h1>
@@ -25,9 +28,7 @@ const BlogPostCard = ({ content, author }) => {
 
             </div>
             
-            <div className="h-28 aspect-sqaure bg-grey">
-                <img src={banner} className="w-full h-full aspect-square object-cover" />
-            </div>
+           
 
         </Link>
     )
