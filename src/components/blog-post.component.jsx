@@ -1,39 +1,47 @@
 /* eslint-disable react/prop-types */
-import { getDay } from "../common/date";
 import { Link } from "react-router-dom";
 
 const BlogPostCard = ({ content, author }) => {
-    let { publishedAt, tags, title, des, banner, activity: { total_likes }, blog_id: id } = content;
-    let { fullname, profile_img, username } = author;
+    const { publishedAt, tags, title, des, banner, activity: { total_likes }, blog_id: id } = content;
+    const { fullname, profile_img } = author;
 
-    return ( 
-        <Link to={`/blog/${id}`} className="mx-auto flex gap-8 items-center border-b border-grey pb-5 mb-4 hover:scale-105  w-full max-w-[50%] hover:shadow-lg transition duration-300">
-             <div className="h-32 aspect-square bg-grey">
-                <div className="w-full">
-                <img src={banner} className="w-full h-24 rounded-md object-cover" alt="Blog Banner" />
+    return (
+        <Link to={`/blog/${id}`} className="flex flex-col max-w-xs border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform duration-300">
+            {/* Image Section */}
+            <div className="w-full h-48 overflow-hidden">
+                <img src={banner} className="w-full h-full object-cover" alt="Blog Banner" />
             </div>
-            </div>
-            <div className="w-full">
-                <div className="flex gap-2 items-center mb-7">
-                    <img src={profile_img} className="w-8 h-8 rounded-full" alt={`${fullname}'s profile`} />
-                    <p className="line-clamp-1">{fullname} @{username}</p>
-                    <p className="min-w-fit">{ getDay(publishedAt) }</p>
+
+            {/* Content Section */}
+            <div className="p-4 flex flex-col justify-between flex-grow">
+                <div>
+                    <h1 className="text-lg font-semibold mb-2">{title}</h1>
+                    <p className="text-sm text-gray-600 line-clamp-2">{des}</p>
                 </div>
 
-                <h1 className="text-2xl font-semibold">{title}</h1>
+                <div className="mt-4 flex justify-between items-center">
+                    <div className="flex items-center">
+                        <img src={profile_img} className="w-8 h-8 rounded-full mr-2" alt={`${fullname}'s profile`} />
+                        <p className="text-sm text-gray-700">{fullname}</p>
+                    </div>
+                    <p className="text-sm text-gray-500">{new Date(publishedAt).toLocaleDateString()}</p>
+                </div>
 
-                <p className="my-3 text-lg leading-7 line-clamp-2">{des}</p>
-
-                <div className="flex gap-4 mt-7">
-                    <span className="btn-light py-1 px-4">{tags[0]}</span>
-                    <span className="ml-3 flex items-center gap-2 text-dark-grey">
-                        <i className="fi fi-rr-heart text-xl"></i>
-                        { total_likes }
+                <div className="mt-4 flex justify-between items-center">
+                    <span className="text-xs text-white bg-blue-500 py-1 px-3 rounded-md">{tags[0]}</span>
+                    <span className="flex items-center text-gray-600">
+                        <i className="fi fi-rr-heart text-lg mr-1"></i>
+                        {total_likes}
                     </span>
                 </div>
             </div>
-            
-           
+
+            {/* Call to Action Section */}
+            <div className="bg-gray-100 p-3 text-center">
+                <button className="py-2 px-4 border border-gray-300 rounded-md hover:bg-gray-200 transition duration-200">
+                    Read More
+                </button>
+            </div>
         </Link>
     );
 }
