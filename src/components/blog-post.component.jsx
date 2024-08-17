@@ -9,11 +9,11 @@ const BlogPostCard = ({ content, author }) => {
 
     return ( 
         <Link to={`/blog/${id}`} className="flex gap-8 items-center border-b border-grey pb-5 mb-4">
-             <div className="h-28 aspect-sqaure bg-grey">
+             
+            <div className="w-full">
+                <div className="h-28 aspect-sqaure bg-grey">
                 <img src={banner} className="w-full h-full aspect-square object-cover" />
             </div>
-            <div className="w-full">
-                
                 <h1 className="blog-title">{title}</h1>
 
                 <p className="my-3 text-xl font-gelasio leading-7 max-sm:hidden md:max-[1100px]:hidden line-clamp-2">{des}</p>
