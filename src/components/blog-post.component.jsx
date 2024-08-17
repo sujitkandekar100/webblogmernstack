@@ -6,10 +6,10 @@ const BlogPostCard = ({ content, author }) => {
     const { fullname, profile_img } = author;
 
     return (
-        <Link to={`/blog/${id}`} className="flex flex-col max-w-xs border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform duration-300">
+        <Link to={`/blog/${id}`} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition-transform duration-300">
             {/* Image Section */}
             <div className="w-full h-48 overflow-hidden">
-                <img src={banner} className="w-full h-full object-cover" alt="Blog Banner" />
+                <img src={banner} className="rounded-t-lg" alt="Blog Banner" />
             </div>
 
             {/* Content Section */}
