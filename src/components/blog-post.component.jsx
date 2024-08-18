@@ -22,7 +22,7 @@ const BlogPostCard = ({ content, author }) => {
                     
                     <div className="flex items-center text-gray-600 mt-2">
                   
-                        <i className="fi fi-rr-heart text-xl"></i>
+                        <i className="fi fi-rr-likethumb text-xl"></i>
                         { total_likes }
                     
                         <div className="ml-auto rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
