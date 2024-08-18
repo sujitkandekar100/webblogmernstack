@@ -120,12 +120,10 @@ const HomePage = () => {
                                             }}
                                             key={i}
                                         >
-                                            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-                                                <BlogPostCard
-                                                    content={blog}
-                                                    author={blog.author.personal_info}
-                                                />
-                                            </div>
+                                            <BlogPostCard
+                                                content={blog}
+                                                author={blog.author.personal_info}
+                                            />
                                         </AnimationWrapper>
                                     ))}
                                 </div>
