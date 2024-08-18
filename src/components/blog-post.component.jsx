@@ -21,13 +21,13 @@ const BlogPostCard = ({ content, author }) => {
                     <b className="text-lg font-bold block leading-tight">{title}</b>
                     
                     <div className="flex items-center text-gray-600 mt-2">
-                        <span className="text-sm font-medium">{`4.1 `}</span>
-                        <img
-                            className="h-4 w-4 ml-1"
-                            loading="lazy"
-                            alt="star"
-                            src="/svgpartsvg.svg"
-                        />
+                       
+                <div className="flex gap-4 mt-7">
+                    <span className="ml-3 flex items-center gap-2 text-dark-grey">
+                        <i className="fi fi-rr-heart text-xl"></i>
+                        { total_likes }
+                    </span>
+                </div>
                         <div className="ml-auto rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
                             Free
                         </div>
