@@ -20,7 +20,7 @@ const BlogPostCard = ({ content, author }) => {
                 <div>
                     <b className="text-lg font-bold block leading-tight">{title}</b>                 
                     <div className="flex items-center text-gray-600 mt-2">
-                        <i class="fi fi-rr-social-network text-xl"></i>
+                        <i class="fi fi-rs-social-network text-xl"></i>
                         ({total_likes}) 
                         <div className="ml-auto rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
                             Free
