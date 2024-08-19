@@ -22,13 +22,13 @@ const BlogPostCard = ({ content, author }) => {
                     <div className="flex gap-4 mt-7">
                       <b className="text-lg font-bold block leading-tight">{title}</b>
                     <span className="ml-3 flex items-center gap-2 text-dark-grey">
-                        <span className="btn-light py-1 px-4 text-xs">{tags[0]}</span>
+                        <span className="btn-light py-1 px-4 text-xs ml-auto rounded bg-gray-100 text-gray-800 px-2 py-1 text-sm">{tags[0]}</span>
                     </span>
                 </div>
                     <div className="flex items-center text-gray-600 mt-2">
-                        <i class="fi fi-rs-social-network text-xl"></i>
+                        <i class="fi fi-rs-social-network text-xl "></i>
                         ({total_likes}) 
-                        <div className="ml-auto rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
+                        <div className="ml-auto btn-light rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
                             Free
                         </div>
                     </div>
