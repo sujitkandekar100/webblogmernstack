@@ -18,10 +18,7 @@ const BlogPostCard = ({ content, author }) => {
             {/* Content Section */}
             <div className="p-4 flex flex-col justify-between h-full">
                 <div>  
-                     <div className="flex gap-4 mt-7">
-                    <b className="text-lg font-bold block leading-tight">{title}</b>
-                    <span className="btn-light py-1 px-4">{tags[0]}</span>
-                     </div>
+                    
                     <div className="flex gap-4 mt-7">
                       <b className="text-lg font-bold block leading-tight">{title}</b>
                     <span className="ml-3 flex items-center gap-2 text-dark-grey">
