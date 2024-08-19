@@ -32,6 +32,8 @@ const BlogPostCard = ({ content, author }) => {
                 
                 
             </div>
+            <span className="btn-light py-1 px-4">{tags[0]}</span>
+
         </Link>
     );
 };
