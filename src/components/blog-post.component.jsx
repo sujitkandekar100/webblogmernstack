@@ -27,7 +27,7 @@ const BlogPostCard = ({ content, author }) => {
                         </div>
                     </div>
                     
-                    <p className="text-sm text-gray-700 mt-2 line-clamp-4">{des}</p>
+                    <p className=" my-3 text-xl font-gelasio leading-7 max-sm:hidden md:max-[1100px]:hidden line-clamp-2">{des}</p>
                 </div>
                 
                 
