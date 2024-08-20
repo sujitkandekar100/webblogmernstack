@@ -23,9 +23,9 @@ const BlogPostCard = ({ content, author }) => {
                        <i class="fi fi-rs-social-network text-xl "></i>
                         ({total_likes}) 
                 </div>
-                    <div className="flex items-center text-gray-600 mt-1">
+                    <div className="flex items-center text-gray-600 mt-2">
                        
-                   <span className="ml-1 flex items-center gap-2 text-dark-grey">
+                   <span className=" flex items-center gap-2 text-dark-grey">
                         <span className="btn-light py-1 text-sm px-2 ">{tags[0]}</span>
                     </span>
                         <div className="ml-auto btn-light rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
