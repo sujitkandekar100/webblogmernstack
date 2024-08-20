@@ -28,7 +28,7 @@ const BlogPostCard = ({ content, author }) => {
                    <span className=" flex items-center gap-2 text-dark-grey">
                         <span className="btn-light py-1 text-sm px-2 ">{tags[0]}</span>
                     </span>
-                    <div className="ml-auto btn-light py-1 px-2 rounded bg-gray-100 text-gray-800" style={{ fontSize: '5px' }}>
+                    <div className="ml-auto btn-light py-1 px-2 rounded bg-gray-100 text-gray-800" style={{ fontSize: '5px' }}">
     3 Demo
 </div>
 
