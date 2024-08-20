@@ -7,7 +7,6 @@ const BlogPostCard = ({ content, author }) => {
         <Link 
             to={`/blog/${id}`} 
             className="shadow-md rounded-lg bg-white flex flex-col text-left text-[14px] text-[#000]">
-            
             {/* Image Section */}
             <img
                 className="w-full h-40 sm:h-48 rounded-t-lg object-cover"
@@ -18,31 +17,29 @@ const BlogPostCard = ({ content, author }) => {
             
             {/* Content Section */}
             <div className="p-4 flex flex-col justify-between h-full">
-                
-                {/* Title */}
-                <b className="text-xl font-bold block leading-tight">{title}</b>
-                 <div className="flex items-center text-gray-600">
-                        <i className="fi fi-rs-social-network text-xl"></i>
-                        <span className="ml-1">({total_likes})</span>
-                    </div>
-                {/* Likes and Free Badge */}
-                <div className="flex justify-between items-center mt-2">
-                     <div className="flex items-center mt-2">
-                    <span className="btn-light py-1 text-xs px-2 text-dark-grey">{tags[0]}</span>
+                <div>  
+                    <div className="flex gap-2 mt-1">
+                      <b className="text-xl font-bold block leading-tight">{title}</b>
+                       <i class="fi fi-rs-social-network text-xl "></i>
+                        ({total_likes}) 
                 </div>
-                    <div className="ml-auto btn-light rounded bg-gray-200 text-gray-800 px-2 py-1 text-xs">
-                        Free
+                    <div className="flex items-center text-gray-600 mt-2">
+                       
+                   <span className="ml-3 flex items-center gap-2 text-dark-grey">
+                        <span className="btn-light py-1 text-xs px-2 ">{tags[0]}</span>
+                    </span>
+                        <div className="ml-auto btn-light rounded bg-gray-200 text-gray-800 px-2 py-1 text-sm">
+                            Free
+                        </div>
                     </div>
+                    
+                    <p className=" my-3 text-base font-gelasio leading-6 line-clamp-2">{des}</p>
                 </div>
                 
-                {/* Tags */}
-              
-
-                {/* Description */}
-                <p className="my-3 text-base font-gelasio leading-6 line-clamp-2">
-                    {des}
-                </p>
+                
             </div>
+           
+
         </Link>
     );
 };
