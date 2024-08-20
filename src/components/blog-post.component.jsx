@@ -33,7 +33,7 @@ const BlogPostCard = ({ content, author }) => {
                         </div>
                     </div>
                     
-                    <p className=" my-3 text-base font-gelasio leading-6 line-clamp-2">{des}</p>
+                    <p className=" my-3 text-base font-gelasio leading-6 line-clamp-3">{des}</p>
                 </div>
                 
                 
