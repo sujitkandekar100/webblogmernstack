@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+
 const BlogPostCard = ({ content, author }) => {
     let { title, des, banner, tags, activity: { total_likes }, blog_id: id } = content;
+
     return (
         <Link 
             to={`/blog/${id}`} 
@@ -26,11 +28,21 @@ const BlogPostCard = ({ content, author }) => {
                    <span className=" flex items-center gap-2 text-dark-grey">
                         <span className="btn-light py-1 text-sm px-2 ">{tags[0]}</span>
                     </span>
-                    <div className="btn-light py-1 text-sm px-2 ">
-    3 Demo
-</div>
         <span className="btn-light py-1 text-sm px-2 ">3 Demo</span>
                     </span>
 
 
                     </div>
+                    
+                    <p className=" my-3 text-base font-gelasio leading-6 line-clamp-3">{des}</p>
+                </div>
+                
+                
+            </div>
+           
+
+        </Link>
+    );
+};
+
+export default BlogPostCard;
