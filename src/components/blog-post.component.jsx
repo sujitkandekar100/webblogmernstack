@@ -19,12 +19,14 @@ const BlogPostCard = ({ content, author }) => {
             {/* Content Section */}
             <div className="p-4 flex flex-col justify-end h-full overflow-hidden">
                 <div>  
-                    <div className="flex gap-2 mt-1">
-                        <b className="text-xl font-bold block leading-tight">{title}</b>
-                         <div className="flex items-center">
+             <div className="flex gap-2 mt-1">
+    <b className="text-xl font-bold block leading-tight">{title}</b>
+    <div className="flex items-center">
         <i className="fi fi-sr-caret-up"></i>
-        <span className="ml-1">({total_likes})</span>
+        <span>({total_likes})</span>
     </div>
+</div>
+
                     <div className="flex justify-between text-gray-600 mt-2">
                         <span className="flex  gap-2 text-dark-grey ">
                             <span className="btn-light py-1 text-sm px-2">{tags[0]}</span>
