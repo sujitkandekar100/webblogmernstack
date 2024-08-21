@@ -1,41 +1,43 @@
-/* eslint-disable react/prop-types */
-import { getDay } from "../common/date";
 import { Link } from "react-router-dom";
 
 const BlogPostCard = ({ content, author }) => {
+    let { title, des, banner, tags, activity: { total_likes }, blog_id: id } = content;
 
-    let { publishedAt, tags, title, des, banner, activity: { total_likes }, blog_id: id } = content;
-    let { fullname, profile_img, username } = author;
-
-    return ( 
-        <Link to={`/blog/${id}`} className="flex gap-8 items-center border-b border-grey pb-5 mb-4">
-            <div className="w-full">
-                <div className="flex gap-2 items-center mb-7">
-                    <img src={profile_img} className="w-6 h-6 rounded-full" />
-                    <p className="line-clamp-1">{fullname} @{username}</p>
-                    <p className="min-w-fit">{ getDay(publishedAt) }</p>
-                </div>
-
-                <h1 className="blog-title">{title}</h1>
-
-                <p className="my-3 text-xl font-gelasio leading-7 max-sm:hidden md:max-[1100px]:hidden line-clamp-2">{des}</p>
-
-                <div className="flex gap-4 mt-7">
-                    <span className="btn-light py-1 px-4">{tags[0]}</span>
-                    <span className="ml-3 flex items-center gap-2 text-dark-grey">
-                        <i className="fi fi-rr-heart text-xl"></i>
-                        { total_likes }
-                    </span>
-                </div>
-
-            </div>
+    return (
+        <Link 
+            to={`/blog/${id}`} 
+            className="shadow-md rounded-lg bg-white flex flex-col text-left text-[14px] text-[#000] min-h-[100px]" // Fixed card height
+        >
+            {/* Image Section */}
+            <img
+                className="w-full h-40 sm:h-48 rounded-t-lg object-cover"
+                loading="lazy"
+                alt={title}
+                src={banner}
+            />
             
-            <div className="h-28 aspect-sqaure bg-grey">
-                <img src={banner} className="w-full h-full aspect-square object-cover" />
+            {/* Content Section */}
+            <div className="p-4 flex flex-col justify-between h-full overflow-hidden">
+                <div>  
+                    <div className="flex gap-2 mt-1">
+                        <b className="text-xl font-bold block leading-tight">{title}</b>
+                        <i className="fi fi-rs-social-network text-xl"></i>
+                        ({total_likes}) 
+                    </div>
+                    <div className="flex items-center text-gray-600 mt-2">
+                        <span className="flex items-center gap-2 text-dark-grey">
+                            <span className="btn-light py-1 text-sm px-2">{tags[0]}</span>
+                        </span>
+                        <span className="btn-light py-1 text-sm px-2">3 Demo</span>
+                    </div>
+                    
+                    <p className="my-3 text-base font-gelasio leading-6 line-clamp-3 overflow-hidden text-ellipsis">
+                        {des}
+                    </p>
+                </div>
             </div>
-
         </Link>
-    )
-}
+    );
+};
 
 export default BlogPostCard;
