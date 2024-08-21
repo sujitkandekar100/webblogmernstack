@@ -6,7 +6,7 @@ const BlogPostCard = ({ content, author }) => {
     return (
         <Link 
             to={`/blog/${id}`} 
-            className="shadow-md rounded-lg flex flex-col text-left text-[14px] text-black dark:text-white min-h-[100px]" // Fixed card height
+            className="shadow-md rounded-lg flex flex-col text-left text-[14px] min-h-[100px]" // Fixed card height
         >
             {/* Image Section */}
             <img
