@@ -17,7 +17,7 @@ const BlogPostCard = ({ content, author }) => {
             />
             
             {/* Content Section */}
-            <div className="p-4 flex flex-col justify-between h-full overflow-hidden">
+            <div className="p-4 flex flex-col justify-end h-full overflow-hidden">
                 <div>  
                     <div className="flex gap-2 mt-1">
                         <b className="text-xl font-bold block leading-tight">{title}</b>
