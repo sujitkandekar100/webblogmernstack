@@ -106,7 +106,7 @@ const HomePage = () => {
             <section className="h-cover flex flex-col gap-10">
                 {/* latest blogs */}
                 <div className="w-full">
-                    <InPageNavigation routes={[pageState, "trending blogs"]} defaultHidden={["trending blogs"]}>
+                    <InPageNavigation routes={[pageState, "trending blogs"]} defaultHidden={[]}>
                         <>
                             {blogs == null ? (
                                 <Loader />
