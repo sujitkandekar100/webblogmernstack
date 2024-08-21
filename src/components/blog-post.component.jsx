@@ -21,8 +21,7 @@ const BlogPostCard = ({ content, author }) => {
                 <div>  
                     <div className="flex gap-2 mt-1">
                         <b className="text-xl font-bold block leading-tight">{title}</b>
-                        <i class="fi fi-sr-caret-up "></i>
-                        ({total_likes}) 
+                        <i class="fi fi-sr-caret-up "></i> ({total_likes}) 
                     </div>
                     <div className="flex justify-between text-gray-600 mt-2">
                         <span className="flex  gap-2 text-dark-grey ">
