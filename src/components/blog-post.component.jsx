@@ -20,7 +20,7 @@ const BlogPostCard = ({ content, author }) => {
             <div className="p-4 flex flex-col justify-between h-full overflow-hidden">
                 <div>  
                     <div className="flex gap-2 mt-1">
-                        <b className="text-xl font-bold block leading-tight">{title}</b>
+                        <b className="blog-title">{title}</b>
                         <i className="fi fi-rs-social-network text-xl"></i>
                         ({total_likes}) 
                     </div>
