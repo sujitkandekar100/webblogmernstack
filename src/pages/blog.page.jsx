@@ -97,8 +97,6 @@ const BlogPage = () => {
                             }
                         </div>
 
-                        <BlogInteraction />
-
                         {
                             similarBlogs != null && similarBlogs.length ?
                                 <>
