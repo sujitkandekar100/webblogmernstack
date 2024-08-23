@@ -102,25 +102,27 @@ const BlogPage = () => {
 
                         <BlogInteraction />
 
-                        {
-                            similarBlogs != null && similarBlogs.length ?
-                                <>
-                                    <h1 className="text-2xl mt-14 mb-10 font-medium">Similar Blogs</h1>
+{
+    similarBlogs != null && similarBlogs.length ? (
+        <>
+            <h1 className="text-2xl mt-14 mb-10 font-medium">Similar Blogs</h1>
 
-                                    {
-                                        similarBlogs.map((blog, i) => {
+            <div className="flex flex-wrap gap-4">
+                {
+                    similarBlogs.map((blog, i) => {
+                        let { author: { personal_info } } = blog;
+                        return (
+                            <AnimationWrapper key={i} transition={{ duration: 1, delay: i * 0.08 }}>
+                                <BlogPostCard content={blog} />
+                            </AnimationWrapper>
+                        );
+                    })
+                }
+            </div>
+        </>
+    ) : " "
+}
 
-                                            let { author: { personal_info } } = blog;
-
-                                            return <AnimationWrapper key={i} transition={{ duration: 1, delay: i*0.08 }}>
-                                                <BlogPostCard content={blog}  />
-                                            </AnimationWrapper>
-
-                                        })
-                                    }
-                                </>
-                            : " "
-                        }
 
                     </div>
                 </BlogContext.Provider>
