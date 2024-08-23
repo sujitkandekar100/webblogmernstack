@@ -17,7 +17,9 @@ const BlogPostCard = ({ content, author }) => {
      <div className="flex gap-2 mt-1">
     <b className="text-xl font-bold block leading-tight">{title}</b>
     <div className="flex items-center space-x-1">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center">
         <i className="fi fi-rr-up text-base"></i>
+        </div>
         <span className="leading-none">({total_likes})</span>
     </div>
 </div>
