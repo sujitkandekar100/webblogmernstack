@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const BlogPostCard = ({ content, author }) => {
     let { title, des, banner, tags, activity: { total_likes }, blog_id: id } = content;
     return (
-        <Link to={`/blog/${id}`} className="shadow-md rounded-lg flex flex-col text-left text-[14px] min-h-[100px]" >
+        <Link to={`/blog/${id}`} className="shadow-md rounded-lg flex flex-col text-left text-[14px] min-h-[100px] max-w-[75px]" >
             {/* Image Section */}
             <img
                 className="w-full h-40 sm:h-48 rounded-t-lg object-cover"
