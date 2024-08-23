@@ -34,7 +34,7 @@ const BlogPostCard = ({ content, author }) => {
                         <span className="btn-light py-1 text-sm px-2">3 Demo</span>
                     </div>
                     
-                    <p className="my-3 text-sm leading-5 line-clamp-3 overflow-hidden text-ellipsis">
+                    <p className="my-3 text-sm leading-5 line-clamp-3 overflow-hidden ">
                         {des}
                     </p>
                 </div>
