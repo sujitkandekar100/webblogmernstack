@@ -6,21 +6,21 @@ const BlogPostCard = ({ content, author }) => {
     return (
         <Link 
             to={`/blog/${id}`} 
-            className="shadow-md rounded-lg flex flex-col text-left text-[14px] w-60 h-80" // Fixed card width and height
+            className="shadow-md rounded-lg flex flex-col text-left text-[14px] w-64 h-96" // Fixed card width and height
         >
             {/* Image Section */}
             <img
-                className="w-full h-32 sm:h-40 rounded-t-lg object-cover"
+                className="w-full h-40 rounded-t-lg object-cover" // Fixed image height
                 loading="lazy"
                 alt={title}
                 src={banner}
             />
             
             {/* Content Section */}
-            <div className="p-4 flex flex-col justify-between flex-grow">
+            <div className="p-4 flex flex-col justify-between h-full">
                 <div>  
                     <div className="flex gap-2 mt-1">
-                        <b className="text-base font-bold block leading-tight">{title}</b>
+                        <b className="text-lg font-bold block leading-tight">{title}</b>
                         <div className="flex items-center space-x-1">
                             <i className="fi fi-sr-caret-up text-xl"></i>
                             <span className="leading-none">({total_likes})</span>
