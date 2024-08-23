@@ -69,7 +69,7 @@ const BlogInteraction = () => {
                         onClick={handleLike}
                         className={`w-10 h-10 rounded-full flex items-center justify-center ${islikedByUser ? "bg-red/20 text-red" : "bg-grey/80"}`}
                     >
-                        <i className={`fi ${islikedByUser ? "fi-ss-arrow-circle-up" : "fi-rs-arrow-circle-up"}`}></i>
+                        <i className={`fi ${islikedByUser ? "fi-rs-arrow-circle-up" : "fi-ss-arrow-circle-up"}`}></i>
                     </button>
                     <p className="text-xl text-dark-grey">{total_likes}</p>
 
