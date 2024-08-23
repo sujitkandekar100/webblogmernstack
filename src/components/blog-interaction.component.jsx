@@ -7,7 +7,7 @@ import axios from "axios";
 
 const BlogInteraction = () => {
 
-    let { blog, blog: { _id, title, blog_id, activity, activity: { total_likes, total_comments }, author: { personal_info: { username: author_username } }  }, setBlog, islikedByUser, setLikedByUser, setCommentsWrapper } = useContext(BlogContext);
+    let { blog, blog: { _id, title, blog_id,banner, activity, activity: { total_likes, total_comments }, author: { personal_info: { username: author_username } }  }, setBlog, islikedByUser, setLikedByUser, setCommentsWrapper } = useContext(BlogContext);
 
     let { userAuth: { username, access_token } } = useContext(UserContext);
 
@@ -91,7 +91,7 @@ const BlogInteraction = () => {
                         <Link to={`/editor/${blog_id}`} className="underline hover:text-purple">Edit</Link> : ""
                     }
 
-                    <Link to={`https://twitter.com/intent/tweet?text=Read ${title}&url=${location.href}`}><i className="fi fi-brands-twitter text-xl hover:text-twitter"></i></Link>
+                    <Link to={`https://twitter.com/intent/tweet?text=Read ${title}&img=${banner}&url=${location.href}`}><i className="fi fi-brands-twitter text-xl hover:text-twitter"></i></Link>
                 </div>
             </div>
 
