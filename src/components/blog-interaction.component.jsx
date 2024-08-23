@@ -90,7 +90,7 @@ const BlogInteraction = () => {
                         <i className="fi fi-brands-linkedin text-xl hover:text-linkedin"></i>
                     </Link>
                     <Link to={`https://twitter.com/intent/tweet?text=Read ${encodeURIComponent(title)}&url=${encodeURIComponent(location.href)}`}>
-                        <i className="fi fi-brands-twitter text-xl hover:text-twitter"></i>
+                        <i className="fi fi-brands-twitter-alt-square text-xl hover:text-twitter"></i>
                     </Link>
                 </div>
             </div>
