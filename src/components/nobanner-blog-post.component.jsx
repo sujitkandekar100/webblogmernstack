@@ -11,8 +11,6 @@ const MinimalBlogPost = ({ blog, index }) => {
             <h1 className="blog-index">{ index < 10 ? "0" + (index + 1) : index}</h1>
 
             <div>
-               
-<div>
                 <div className="flex gap-2 items-center mb-7">
                     <img src={profile_img} className="w-6 h-6 rounded-full" />
                     <p className="line-clamp-1">{fullname} @{username}</p>
