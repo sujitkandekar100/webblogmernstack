@@ -96,8 +96,8 @@ const HomePage = () => {
             fetchBlogsByCategory({ page: 1 });
         }
 
-        if (!trendingBlogs) {
-            fetchTrendingBlogs();
+        if (pageState === "trendingBlogs") {
+            fetchTrendingBlogs({page:2});
         }
     }, [pageState]);
 
