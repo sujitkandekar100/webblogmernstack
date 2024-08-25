@@ -111,7 +111,7 @@ const HomePage = () => {
         <AnimationWrapper>
             <section className="h-cover flex flex-col gap-10">
                 {/* latest blogs */}
-                <div className="w-full flex-wrap  ">
+                <div className="w-full wrap  ">
                     <InPageNavigation
                         routes={[ pageState , "trending blogs"]}
                         defaultHidden={[]}
