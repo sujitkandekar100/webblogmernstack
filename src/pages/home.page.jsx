@@ -189,35 +189,7 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <div>
-                            <h1 className="font-medium text-xl mb-8">
-                                Trending
-                                <i className="fi fi-rr-arrow-trend-up"></i>
-                            </h1>
-
-                            {trendingBlogs == null ? (
-                                <Loader />
-                            ) : (
-                                trendingBlogs.length ? 
-                                    trendingBlogs.map((blog, i) => {
-                                        return (
-                                            <AnimationWrapper
-                                                transition={{
-                                                    duration: 1,
-                                                    delay: i * 0.1,
-                                                }}
-                                                key={i}
-                                            >
-                                                <MinimalBlogPost
-                                                    blog={blog}
-                                                    index={i}
-                                                />
-                                            </AnimationWrapper>
-                                        );
-                                    })
-                                : <NoDataMessage message="No trending blogs" />
-                            )}
-                        </div>
+                      
                     </div>
                 </div>
             </section>
