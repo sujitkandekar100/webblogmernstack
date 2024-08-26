@@ -111,10 +111,10 @@ const HomePage = () => {
         <AnimationWrapper>
             <section className="h-cover flex flex-col gap-10">
                 {/* latest blogs */}
-                <div className="w-full  ">
+                <div className="w-full">
                     <InPageNavigation
                         routes={[ pageState , "trending blogs"]}
-                        defaultHidden={[]}
+                        defaultHidden={["trending blogs"]}
                     >
                         <>
                             {blogs == null ? (
@@ -170,7 +170,7 @@ const HomePage = () => {
                 </div>
 
                 {/* filters and trending blogs */}
-                <div className="min-w-[40%] lg:min-w-[400px] max-w-min border-l  border-grey pl-8 pt-3 max-md:hidden">
+                <div className="min-w-[40%] lg:min-w-[400px] max-w-min border-l border-grey pl-8 pt-3 max-md:hidden">
                     <div className="flex flex-col gap-10">
                         <div>
                             <h1 className="font-medium text-xl mb-8">
@@ -189,7 +189,35 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                      
+                        <div>
+                            <h1 className="font-medium text-xl mb-8">
+                                Trending
+                                <i className="fi fi-rr-arrow-trend-up"></i>
+                            </h1>
+
+                            {trendingBlogs == null ? (
+                                <Loader />
+                            ) : (
+                                trendingBlogs.length ? 
+                                    trendingBlogs.map((blog, i) => {
+                                        return (
+                                            <AnimationWrapper
+                                                transition={{
+                                                    duration: 1,
+                                                    delay: i * 0.1,
+                                                }}
+                                                key={i}
+                                            >
+                                                <MinimalBlogPost
+                                                    blog={blog}
+                                                    index={i}
+                                                />
+                                            </AnimationWrapper>
+                                        );
+                                    })
+                                : <NoDataMessage message="No trending blogs" />
+                            )}
+                        </div>
                     </div>
                 </div>
             </section>
