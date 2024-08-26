@@ -23,7 +23,6 @@ const MinimalBlogPost = ({ blog, index }) => {
     <div className="flex items-center text-sm text-gray-600 mt-1">
       <span className="mr-1">{total_likes}</span>
         <i className="fi fi-ss-arrow-circle-up text-base "></i>
-      <span className="ml-2">{tags[0]}</span>
     </div>
   </div>
 </div>
