@@ -22,9 +22,9 @@ const MinimalBlogPost = ({ blog, index }) => {
                 <img src={banner} alt={title} className="w-16 h-16 rounded-lg" />
 
                 <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-xl">{title}</h3>
-                            <span className="btn-light bg-gray-200 text-gray-400 py-1 px-3 rounded-full text-sm">
+                    <div className="flex items-center justify-between gap-3">
+                        <h6 className="text-lg font-semibold text-base">{title}</h6>
+                            <span className="btn-light bg-gray-200 rounded-full btn-light py-1 text-sm px-2">
                                 {tags[1]}
                             </span>
                     
