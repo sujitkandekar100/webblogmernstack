@@ -143,7 +143,9 @@ const HomePage = () => {
                             )}
                             <LoadMoreDataBtn state={blogs} fetchDataFun={( pageState == "home" ? fetchLatestBlogs : fetchBlogsByCategory )} />
                         </>
-
+                        </div>
+                     <div className="flex gap-3 ">
+                    
                         {trendingBlogs == null ? (
                             <Loader />
                         ) : (
