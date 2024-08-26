@@ -22,22 +22,13 @@ const MinimalBlogPost = ({ blog, index }) => {
                 <img src={banner} alt={title} className="w-16 h-16 rounded-lg" />
 
                 <div className="flex-1">
-                    <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center  gap-3">
                         <h5 className="text-lg font-semibold text-xl">{title}</h5>
                             <span className="btn-light  rounded-full  py-1 text-sm px-2">
                                 {tags[1]}
                             </span>
                     </div>           
                 </div>
-                  <div className="flex-2">
-                    <div className="flex items-center justify-between gap-3">
-                            <span className="btn-light  rounded-full  py-1 text-sm px-2">
-                                {tags[1]}
-                            </span>
-                    </div>           
-                </div>        
-       
-                
             </div>
         </Link>
     );
