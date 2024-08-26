@@ -15,6 +15,9 @@ const MinimalBlogPost = ({ blog, index }) => {
                     <img src={banner} className="w-16 h-16 rounded-md" />
                      <h1 className="blog-title text-x1">{title}</h1>
                     </div>
+            <span className="flex  gap-2 text-dark-grey line-clamp-2">
+ <span className="btn-light py-1 text-sm px-2">{tags[0]}</span>
+                        </span>
         <div className="flex items-center space-x-1 line-clamp-2">
         <i className="fi fi-ss-arrow-circle-up text-base "></i>
         <span className="leading-none">({total_likes})</span>
