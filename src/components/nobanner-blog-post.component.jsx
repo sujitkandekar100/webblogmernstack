@@ -25,7 +25,7 @@ const MinimalBlogPost = ({ blog, index }) => {
         <div className="flex items-center gap-3">
             <h5 className="text-lg font-semibold text-xl">{title}</h5>
         </div>
-        <div className="btn-light rounded-full py-1 text-sm px-2">
+        <div className="btn-light rounded-full py-1 text-sm px-2 mt-2">
             {tags[1]}
         </div>
     </div>
