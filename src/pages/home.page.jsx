@@ -109,7 +109,7 @@ const HomePage = () => {
 
     return (
         <AnimationWrapper>
-            <section className="h-cover flex grid-cols-4 gap-10">
+            <section className="h-cover flex flex-col gap-10">
                 {/* latest blogs */}
                 <div className="w-full">
                     <InPageNavigation
