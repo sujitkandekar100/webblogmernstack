@@ -111,10 +111,11 @@ const HomePage = () => {
         <AnimationWrapper>
             <section className="flex flex-col gap-10">
                 {/* latest blogs */}
-                <div className="flex gap-3 flex-wrap ">
-                    <InPageNavigation
+                <InPageNavigation
                         routes={[ pageState , "trending blogs"]}
                     >
+                <div className="flex gap-3 flex-wrap ">
+                   
                         <>
                             {blogs == null ? (
                                 <Loader />
@@ -165,9 +166,9 @@ const HomePage = () => {
                                 })
                             : <NoDataMessage message="No trending blogs" />
                         )}
+                     </div>
                     </InPageNavigation>
-                </div>
-
+               
                 {/* filters and trending blogs */}
 
             </section>
