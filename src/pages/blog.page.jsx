@@ -107,9 +107,9 @@ const BlogPage = () => {
               {/* Blog Details: Title, Views, Visited, Tags, Description */}
               <div className="flex-1 lg:order-1">
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
-                <p className="my-3 text-base font-serif leading-6 line-clamp-3 overflow-hidden text-ellipsis">
-                  {des}
-                </p>
+                <p className="my-3 text-base md:text-lg font-serif leading-7 line-clamp-4 overflow-hidden text-ellipsis text-gray-800">
+  {des}
+</p>
                 <div className="flex items-center gap-4 mb-2">
                   <span className="bg-gray-200 py-1 px-3 text-sm rounded border-2 border-transparent hover:border-black dark:hover:border-white">
                     Views: {activity.total_reads}
