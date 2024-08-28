@@ -32,7 +32,7 @@ const BlogPage = () => {
   const [totalParentCommentsLoaded, setTotalParentCommentsLoaded] =
     useState(0);
 
-  const { title, content, banner, activity, tags } = blog;
+  const { title, content, banner, activity, tags, des } = blog;
 
   const fetchBlog = () => {
     axios
@@ -94,11 +94,21 @@ const BlogPage = () => {
           }}
         >
           <CommentsContainer />
-          <div className="max-w-[900px] center py-10 max-lg:px-[5vw]">
-            <div className="flex flex-wrap justify-between items-start">
-              {/* Left Column: Title, Views, Visited, Tags */}
-              <div className="flex-1 max-w-[300px]">
+          <div className="max-w-[900px] mx-auto py-10 px-[5vw]">
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-6">
+              {/* Banner Image */}
+              <div className="flex-1 lg:order-2">
+                <img
+                  src={banner}
+                  className="w-full h-auto rounded-lg object-cover"
+                  alt="Blog banner"
+                />
+              </div>
+
+              {/* Blog Details: Title, Views, Visited, Tags, Description */}
+              <div className="flex-1 lg:order-1">
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
+                <p className="mb-4 text-gray-700">{des}</p>
                 <div className="mb-2">
                   <span className="bg-gray-200 py-1 px-3 text-sm rounded">
                     Views: {activity.total_reads}
@@ -123,16 +133,10 @@ const BlogPage = () => {
                   ))}
                 </div>
               </div>
-              {/* Right Column: Banner */}
-              <div className="flex-1">
-                <img
-                  src={banner}
-                  className="w-full h-auto rounded object-cover"
-                  alt="Blog banner"
-                />
-              </div>
             </div>
+
             <BlogInteraction />
+
             <div className="my-12 font-gelasio blog-page-content">
               {content.length > 0 &&
                 content[0].blocks.map((block, i) => (
@@ -141,7 +145,9 @@ const BlogPage = () => {
                   </div>
                 ))}
             </div>
+
             <BlogInteraction />
+
             {similarBlogs != null && similarBlogs.length > 0 && (
               <>
                 <h1 className="text-2xl mt-14 mb-10 font-medium">
