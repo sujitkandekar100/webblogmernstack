@@ -29,8 +29,7 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
   const [islikedByUser, setLikedByUser] = useState(false);
   const [commentsWrapper, setCommentsWrapper] = useState(false);
-  const [totalParentCommentsLoaded, setTotalParentCommentsLoaded] =
-    useState(0);
+  const [totalParentCommentsLoaded, setTotalParentCommentsLoaded] = useState(0);
 
   const { title, content, banner, activity, tags, des } = blog;
 
@@ -100,7 +99,7 @@ const BlogPage = () => {
               <div className="flex-1 lg:order-2">
                 <img
                   src={banner}
-                  className="w-full h-auto rounded-lg object-cover"
+                  className="w-full h-auto rounded object-cover"
                   alt="Blog banner"
                 />
               </div>
@@ -108,22 +107,23 @@ const BlogPage = () => {
               {/* Blog Details: Title, Views, Visited, Tags, Description */}
               <div className="flex-1 lg:order-1">
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
-                <p className="mb-4 text-gray-700">{des}</p>
-                <div className="mb-2">
-                  <span className="bg-gray-200 py-1 px-3 text-sm rounded">
+                <p className="my-3 text-base font-serif leading-6 line-clamp-3 overflow-hidden text-ellipsis">
+                  {des}
+                </p>
+                <div className="flex items-center gap-4 mb-2">
+                  <span className="bg-gray-200 py-1 px-3 text-sm rounded border-2 border-transparent hover:border-black dark:hover:border-white">
                     Views: {activity.total_reads}
                   </span>
-                </div>
-                <div className="mb-2">
                   <Link
                     to="#"
-                    className="bg-gray-200 py-1 px-3 text-sm rounded"
+                    className="bg-gray-200 py-1 px-3 text-sm rounded border-2 border-transparent hover:border-black dark:hover:border-white"
                   >
-                    Visited
+                    Visit our site
                   </Link>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag, index) => (
+                {/* Skip the first two tags and display the rest */}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {tags.slice(2).map((tag, index) => (
                     <span
                       key={index}
                       className="bg-gray-200 py-1 px-3 text-sm rounded"
