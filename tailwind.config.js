@@ -4,7 +4,6 @@ import { createThemes } from 'tw-colors';
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
-
         fontSize: {
             'sm': '12px',
             'base': '14px',
@@ -17,11 +16,11 @@ export default {
 
         extend: {
             fontFamily: {
-              inter: ["'Inter'", "sans-serif"],
-              gelasio: ["'Gelasio'", "serif"]
+                inter: ["'Inter'", "sans-serif"],
+                gelasio: ["'Gelasio'", "serif"],
+                segoe: ["'Segoe UI'", "Tahoma", "Geneva", "Verdana", "sans-serif"] // Add Segoe UI here
             },
         },
-
     },
     plugins: [
         createThemes({
