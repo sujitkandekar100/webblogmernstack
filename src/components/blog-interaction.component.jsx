@@ -56,14 +56,14 @@ const BlogInteraction = () => {
     };
 
     const handleShare = () => {
-        // Logic for handling the share button can be implemented here
+        navigator.clipboard.writeText(location.href);
         toast.success("Link copied to clipboard!");
     };
 
     return (
         <>
             <Toaster />
-            <hr className="border-grey my-2" />
+            <hr className="border-grey my-2 rounded-full" />
 
             <div className="flex gap-6 justify-between">
                 <div className="flex gap-3 items-center">
@@ -83,28 +83,39 @@ const BlogInteraction = () => {
                     </button>
                     <p className="text-xl text-dark-grey">{total_comments}</p>
 
-                    <button
-                        onClick={handleShare}
-                        className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80"
-                    >
-                        <i className="fi fi-rr-share-square"></i>
-                    </button>
+                  
                 </div>
 
                 <div className="flex gap-6 items-center">
                     {username === author_username && (
-                        <Link to={`/editor/${blog_id}`} className="underline hover:text-purple">Edit</Link>
+                        <Link to={`/editor/${blog_id}`} className="underline text-[#24a0ed] hover:text-[#24a0ed]">Edit</Link>
                     )}
-                    <button className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]">
+                     <button
+                        onClick={handleShare}
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]"
+                    >
+                        <i className="fi fi-rr-share-square"></i>
+                    </button>
+                    <a
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(location.href)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]"
+                    >
                         <i className="fi fi-brands-linkedin text-xl"></i>
-                    </button>
-                    <button className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]">
-                        <i className="fi fi-sr-square-x text-xl"></i>
-                    </button>
+                    </a>
+                    <a
+                        href={`https://twitter.com/intent/tweet?text=Read ${encodeURIComponent(title)}&url=${encodeURIComponent(location.href)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]"
+                    >
+                        <i className="fi fi-brands-twitter text-xl"></i>
+                    </a>
                 </div>
             </div>
 
-            <hr className="border-grey my-2" />
+            <hr className="border-grey my-2 rounded-full" />
         </>
     );
 };
