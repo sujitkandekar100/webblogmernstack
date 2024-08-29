@@ -107,7 +107,7 @@ const BlogPage = () => {
               {/* Blog Details: Title, Views, Visited, Tags, Description */}
               <div className="flex-1 lg:order-1">
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
-                <p className="my-3 text-xl md:text-lg font-segoe leading-7 line-clamp-5 text-ellipsis ">
+                <p className="my-3 text-xl md:text-lg font-gelasio leading-7 line-clamp-5 text-ellipsis ">
   {des}
 </p>
                 <div className="flex items-center gap-4 mb-2">
