@@ -107,16 +107,16 @@ const BlogPage = () => {
               {/* Blog Details: Title, Views, Visited, Tags, Description */}
               <div className="flex-1 lg:order-1">
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
-                <p className="my-3 text-base md:text-lg text-segoe-ui leading-7 line-clamp-4 overflow-hidden text-ellipsis text-gray-800">
+                <p className="my-3 text-base md:text-lg font-segoe leading-7 line-clamp-5 text-ellipsis ">
   {des}
 </p>
                 <div className="flex items-center gap-4 mb-2">
-                  <span className="bg-gray-200 py-1 px-3 text-sm rounded border-2 border-transparent hover:border-black dark:hover:border-white">
+                  <span className="btn-light py-2 text-xl">
                     Views: {activity.total_reads}
                   </span>
                   <Link
                     to="#"
-                    className="bg-gray-200 py-1 px-3 text-sm rounded border-2 border-transparent hover:border-black dark:hover:border-white"
+                    className="px-3 text-xl btn-dark py-2"
                   >
                     Visit our site
                   </Link>
@@ -126,7 +126,7 @@ const BlogPage = () => {
                   {tags.slice(2).map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-gray-200 py-1 px-3 text-sm rounded"
+                      className="btn-light py-1 text-xl px-2"
                     >
                       {tag}
                     </span>
