@@ -110,7 +110,7 @@ const BlogInteraction = () => {
                         rel="noopener noreferrer"
                         className="w-10 h-10 rounded-full flex items-center justify-center bg-grey/80 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]"
                     >
-                        <i className="fi fi-brands-twitter text-xl"></i>
+                        <i className="fi fi-brands-twitter-alt text-xl"></i>
                     </a>
                 </div>
             </div>
