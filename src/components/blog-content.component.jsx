@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-const Img = ({ url, caption }) => {
+const Img = ({ url }) => {
     return (
         <div>
             <img src={url} />
-            { caption.length ? <p className="w-full text-center my-3 md:mb-12 text-base text-dark-grey">{caption}</p> : "" }
         </div>
+        
     )
 }
 
 const Quote = ({ quote, caption }) => {
     return (
-        <div className="bg-purple/10 p-3 pl-5 border-l-4 border-purple">
+        <div className="bg-[#24a0ed]/10 p-3 pl-5 border-l-4 border-[#24a0ed]">
             <p className="text-xl leading-10 md:text-2xl">{quote}</p>
-            {caption.length ? <p className="w-full text-purple text-base">{caption}</p> : ""}
+            {caption.length ? <p className="w-full text-[#24a0ed] text-base">{caption}</p> : ""}
         </div>
     )
 }
@@ -47,7 +47,7 @@ const BlogContent = ({ block }) => {
     }
 
     if(type == "image") {
-        return <Img url={data.file.url} caption={data.caption} />
+        return <Img url={data.file.url}  />
     }
 
     if(type == "quote"){
