@@ -2,7 +2,7 @@
 const Img = ({ url }) => {
     return (
         <div>
-            <img src={url} />
+            <img src={url} className="w-full h-40 rounded-lg " />
         </div>
         
     )
