@@ -99,7 +99,7 @@ const BlogPage = () => {
               <div className="flex-1 lg:order-2">
                 <img
                   src={banner}
-                  className="w-full h-auto rounded-lg object-cover"
+                  className="w-full h-40 rounded-lg object-cover"
                   alt="Blog banner"
                 />
               </div>
