@@ -18,7 +18,7 @@ export const blogStructure = {
   publishedAt: "",
   activity: { total_reads: 0 },
   tags: [],
-  videoUrl: "https://youtu.be/bhCPajnV7NY?si=7Rg06E9IDPmVljpY", // Add this property to handle video URL
+  videoUrl: "https://youtu.be/bhCPajnV7NY?si=viIwOCv55zxtI_8_", // Add this property to handle video URL
 };
 
 export const BlogContext = createContext({});
