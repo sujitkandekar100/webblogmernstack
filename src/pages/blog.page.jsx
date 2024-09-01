@@ -8,7 +8,6 @@ import BlogPostCard from "../components/blog-post.component";
 import BlogContent from "../components/blog-content.component";
 import CommentsContainer, { fetchComments } from "../components/comments.component";
 
-// Default blog structure with videoUrl added
 export const blogStructure = {
   title: "",
   des: "",
@@ -18,7 +17,6 @@ export const blogStructure = {
   publishedAt: "",
   activity: { total_reads: 0 },
   tags: [],
-  videoUrl: "https://youtu.be/bhCPajnV7NY?si=viIwOCv55zxtI_8_", // Add this property to handle video URL
 };
 
 export const BlogContext = createContext({});
@@ -33,7 +31,7 @@ const BlogPage = () => {
   const [commentsWrapper, setCommentsWrapper] = useState(false);
   const [totalParentCommentsLoaded, setTotalParentCommentsLoaded] = useState(0);
 
-  const { title, content, banner, activity, tags, des, videoUrl } = blog;
+  const { title, content, banner, activity, tags, des } = blog;
 
   const fetchBlog = () => {
     axios
@@ -109,42 +107,33 @@ const BlogPage = () => {
               {/* Blog Details: Title, Views, Visited, Tags, Description */}
               <div className="flex-1 lg:order-1">
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
-                <p className="my-3 text-xl md:text-lg font-gelasio leading-7 line-clamp-5 text-ellipsis">
-                  {des}
-                </p>
+                <p className="my-3 text-xl md:text-lg font-gelasio leading-7 line-clamp-5 text-ellipsis ">
+  {des}
+</p>
                 <div className="flex items-center gap-4 mb-2">
                   <span className="btn-light py-2 text-xl">
                     Views: {activity.total_reads}
                   </span>
-                  <Link to="#" className="px-3 text-xl btn-dark py-2">
+                  <Link
+                    to="#"
+                    className="px-3 text-xl btn-dark py-2"
+                  >
                     Visit our site
                   </Link>
                 </div>
                 {/* Skip the first two tags and display the rest */}
                 <div className="flex flex-wrap gap-2 mt-4">
                   {tags.slice(2).map((tag, index) => (
-                    <span key={index} className="btn-light py-1 text-base px-2">
+                    <span
+                      key={index}
+                      className="btn-light py-1 text-base px-2"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-
-            {/* Embed YouTube Video */}
-            {videoUrl && (
-              <div className="my-4">
-                <iframe
-                  width="100%"
-                  height="400"
-                  src={videoUrl.replace("watch?v=", "embed/")}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
 
             <BlogInteraction />
 
