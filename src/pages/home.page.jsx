@@ -109,6 +109,10 @@ const HomePage = () => {
 
     return (
         <AnimationWrapper>
+             <div className="text-center text-3xl font-bold block leading-tight">
+                    <h1>Discover What AI </h1>
+                    <h1>Can Do? </h1>
+                 </div>
             <section className="flex flex-col gap-10">
                 {/* latest blogs */}
                 <InPageNavigation
