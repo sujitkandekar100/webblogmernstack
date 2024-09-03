@@ -109,7 +109,7 @@ const HomePage = () => {
 
     return (
         <AnimationWrapper>
-             <div className="text-center text-3xl font-bold block leading-tight">
+             <div className="text-center text-3xl font-bold block mt-12 leading-tight">
                     <h1>Discover What AI </h1>
                     <h1>Can Do? </h1>
                  </div>
