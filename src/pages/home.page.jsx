@@ -9,22 +9,23 @@ import { activeTabRef } from "../components/inpage-navigation.component";
 import NoDataMessage from "../components/nodata.component";
 import { filterPaginationData } from "../common/filter-pagination-data";
 import LoadMoreDataBtn from "../components/load-more.component";
-import SearchBar from "../components/SearchBar";  // Import the SearchBar component
+import SearchBar from "../components/SearchBar";
 
 const HomePage = () => {
     const [blogs, setBlog] = useState(null);
     const [trendingBlogs, setTrendingBlog] = useState(null);
     const [pageState, setPageState] = useState("home");
+    const [categoryDropdownVisible, setCategoryDropdownVisible] = useState(false);
 
     const categories = [
-        "programming",
-        "hollywood",
-        "film making",
-        "social media",
-        "cooking",
-        "tech",
-        "finance",
-        "travel",
+        "Programming",
+        "Hollywood",
+        "Film Making",
+        "Social Media",
+        "Cooking",
+        "Tech",
+        "Finance",
+        "Travel",
     ];
 
     const fetchLatestBlogs = ({ page = 1 }) => {
@@ -75,17 +76,16 @@ const HomePage = () => {
             });
     };
 
-    const loadBlogByCategory = (e) => {
-        let category = e.target.innerText.toLowerCase();
-
+    const loadBlogByCategory = (category) => {
         setBlog(null);
+        setCategoryDropdownVisible(false);
 
         if (pageState === category) {
             setPageState("home");
             return;
         }
 
-        setPageState(category);
+        setPageState(category.toLowerCase());
     };
 
     useEffect(() => {
@@ -109,9 +109,30 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
             
-            {/* Add SearchBar component here */}
-            <div className="my-8 flex justify-center">
+            {/* SearchBar and Category Button */}
+            <div className="my-8 flex justify-center items-center gap-4">
                 <SearchBar className="max-w-lg w-full" />
+                <div className="relative">
+                    <button 
+                        className="btn-light py-2 px-4 rounded-full"
+                        onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
+                    >
+                        Category
+                    </button>
+                    {categoryDropdownVisible && (
+                        <div className="absolute left-0 mt-2 w-48 bg-white border border-grey rounded-lg shadow-lg">
+                            {categories.map((category, index) => (
+                                <button 
+                                    key={index} 
+                                    className="block w-full text-left px-4 py-2 hover:bg-grey-light"
+                                    onClick={() => loadBlogByCategory(category)}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
 
             <section className="flex flex-col gap-10">
