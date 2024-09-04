@@ -142,8 +142,9 @@ const HomePage = () => {
                                 >
                                     {category}
                                 </button>
-                            </div>
+                            
                             ))}
+                          </div>
                         </div>
                     )}
                 </div>
