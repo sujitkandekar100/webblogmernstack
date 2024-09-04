@@ -10,7 +10,6 @@ import NoDataMessage from "../components/nodata.component";
 import { filterPaginationData } from "../common/filter-pagination-data";
 import LoadMoreDataBtn from "../components/load-more.component";
 import SearchBar from "../components/SearchBar";
-import { FiFilter } from 'react-icons/fi'; // Importing an icon for the category button
 
 const HomePage = () => {
     const [blogs, setBlog] = useState(null);
@@ -118,7 +117,7 @@ const HomePage = () => {
                         className="ml-2 bg-white p-3 rounded-full border border-gray-300 flex items-center justify-center"
                         onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
                     >
-                        <FiFilter className="text-xl" />
+                        <i className="fi fi-rr-list text-xl"></i> {/* Updated Icon */}
                     </button>
                     {categoryDropdownVisible && (
                         <div className="absolute top-full left-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg">
