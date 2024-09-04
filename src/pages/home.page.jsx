@@ -10,6 +10,7 @@ import NoDataMessage from "../components/nodata.component";
 import { filterPaginationData } from "../common/filter-pagination-data";
 import LoadMoreDataBtn from "../components/load-more.component";
 import SearchBar from "../components/SearchBar";
+import { FiFilter } from 'react-icons/fi'; // Importing an icon for the category button
 
 const HomePage = () => {
     const [blogs, setBlog] = useState(null);
@@ -110,21 +111,21 @@ const HomePage = () => {
             </div>
             
             {/* SearchBar and Category Button */}
-            <div className="my-8 flex justify-center items-center gap-4">
-                <SearchBar className="max-w-lg w-full" />
-                <div className="relative">
+            <div className="my-8 flex justify-center items-center gap-4 flex-wrap">
+                <div className="relative w-full max-w-lg flex">
+                    <SearchBar className="w-full rounded-full p-3" />
                     <button 
-                        className="btn-light py-2 px-4 rounded-full"
+                        className="ml-2 bg-white p-3 rounded-full border border-gray-300 flex items-center justify-center"
                         onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
                     >
-                        Category
+                        <FiFilter className="text-xl" />
                     </button>
                     {categoryDropdownVisible && (
-                        <div className="absolute left-0 mt-2 w-48 bg-white border border-grey rounded-lg shadow-lg">
+                        <div className="absolute top-full left-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg">
                             {categories.map((category, index) => (
                                 <button 
                                     key={index} 
-                                    className="block w-full text-left px-4 py-2 hover:bg-grey-light"
+                                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                                     onClick={() => loadBlogByCategory(category)}
                                 >
                                     {category}
