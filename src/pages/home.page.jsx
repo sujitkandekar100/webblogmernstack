@@ -112,19 +112,31 @@ const HomePage = () => {
             {/* SearchBar and Category Button */}
             <div className="my-8 flex justify-center items-center gap-4 flex-wrap">
                 <div className="relative w-full max-w-lg flex">
-                    <SearchBar className="w-full rounded-full p-3" />
+                    <SearchBar 
+                        className="w-full rounded-l-full p-3" 
+                        style={{
+                            borderTopRightRadius: 0, 
+                            borderBottomRightRadius: 0, 
+                            border: '1px solid #ddd'
+                        }}
+                    />
                     <button 
-                        className="ml-2 bg-white p-3 rounded-full border border-gray-300 flex items-center justify-center"
+                        className="bg-white p-3 rounded-r-full border border-gray-300 flex items-center justify-center"
                         onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
                     >
-                        <i className="fi fi-rr-list text-xl"></i> {/* Updated Icon */}
+                        <i className="fi fi-rr-list text-xl"></i>
                     </button>
                     {categoryDropdownVisible && (
-                        <div className="absolute top-full left-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg">
+                        <div 
+                            className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10"
+                            style={{ 
+                                transform: 'translateX(-100%)' 
+                            }}
+                        >
                             {categories.map((category, index) => (
                                 <button 
                                     key={index} 
-                                    className="btn-dark py-2"
+                                    className="btn-dark py-2 block w-full text-left px-4 hover:bg-gray-100"
                                     onClick={() => loadBlogByCategory(category)}
                                 >
                                     {category}
