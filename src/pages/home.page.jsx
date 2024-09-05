@@ -153,49 +153,6 @@ const HomePage = () => {
     )}
   </div>
 </div>
-
-
-            {/* SearchBar and Category Button */}
-            <div className="my-8 flex justify-center items-center gap-4 flex-wrap">
-                <div className="relative w-full max-w-lg flex">
-                    <SearchBar 
-                        className="w-full rounded-l-full p-3" 
-                        style={{
-                            borderTopRightRadius: 0, 
-                            borderBottomRightRadius: 0, 
-                            border: '1px solid #ddd'
-                        }}
-                    />
-                    <button 
-                        className="bg-white p-3 rounded-r-full border border-gray-300 flex items-center justify-center"
-                        onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
-                    >
-                        <i className="fi fi-rr-list text-xl"></i>
-                    </button>
-                    {categoryDropdownVisible && (
-                        <div 
-                            className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10"
-                            style={{ 
-                                transform: 'translateX(-100%)' 
-                            }}
-                        >
-                            <div className="flex gap-3 flex-wrap">
-                            {categories.map((category, index) => (
-                                <button 
-                                    key={index} 
-                                    className="btn-light py-2"
-                                    onClick={() => loadBlogByCategory(category)}
-                                >
-                                    {category}
-                                </button>
-                            
-                            ))}
-                          </div>
-                        </div>
-                    )}
-                </div>
-            </div>
-
             <section className="flex flex-col gap-10">
                 {/* Latest blogs */}
                 <InPageNavigation routes={[pageState, "trending blogs"]}>
