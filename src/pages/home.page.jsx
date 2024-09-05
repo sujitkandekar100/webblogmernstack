@@ -108,19 +108,21 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover What AI</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
-              <div className="my-8 flex justify-center items-center gap-4 flex-wrap">
+<div className="my-8 flex justify-center items-center gap-4 flex-wrap">
   <div className="relative w-full max-w-lg flex">
-    {/* SearchBar with rounded left side only */}
+    {/* Search Bar with square left side and rounded right side */}
     <SearchBar 
-      className="w-full rounded-l-lg p-3"  // rounded-l-lg for the left side
+      className="w-full p-3"
       style={{
-        borderTopRightRadius: 0,  // No rounding on the top-right corner
-        borderBottomRightRadius: 0,  // No rounding on the bottom-right corner
-        border: '1px solid #ddd'  // Border around the search bar
+        borderTopLeftRadius: '0px',  // Square on the top-left corner
+        borderBottomLeftRadius: '0px',  // Square on the bottom-left corner
+        borderTopRightRadius: '8px',  // Rounded on the top-right corner
+        borderBottomRightRadius: '8px',  // Rounded on the bottom-right corner
+        border: '1px solid #ddd'  // Adding a border around the input
       }}
     />
 
-    {/* Button with rounded right side only */}
+    {/* Filter Button with rounded right corners */}
     <button 
       className="bg-white p-3 rounded-r-lg border border-gray-300 flex items-center justify-center"
       onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
@@ -151,6 +153,7 @@ const HomePage = () => {
     )}
   </div>
 </div>
+
 
             {/* SearchBar and Category Button */}
             <div className="my-8 flex justify-center items-center gap-4 flex-wrap">
