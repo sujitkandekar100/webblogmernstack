@@ -108,7 +108,7 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover What AI</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
-<div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-md">
+<div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-lg">
   <div className="relative w-full max-w-lg flex">
     {/* Search Bar with square left side and rounded right side */}
     <SearchBar 
@@ -124,7 +124,7 @@ const HomePage = () => {
 
     {/* Filter Button with rounded right corners */}
     <button 
-      className="bg-white p-3 rounded-r-lg border border-gray-300 flex items-center justify-center"
+      className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
       onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
     >
       <i className="fi fi-rr-list text-xl"></i>
@@ -142,7 +142,7 @@ const HomePage = () => {
           {categories.map((category, index) => (
             <button 
               key={index} 
-              className="btn-light px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md"
+              className="btn-light px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg"
               onClick={() => loadBlogByCategory(category)}
             >
               {category}
