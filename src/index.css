@@ -16,7 +16,7 @@ body {
 
 @layer components {
     * {
-        @apply m-0 p-0 box-border text-base outline-purple/30 duration-100;
+        @apply m-0 p-0 box-border text-base outline-[#24a0ed]/30 duration-100;
     }
 
     html{
@@ -36,7 +36,7 @@ body {
     }
 
     ::selection {
-        @apply bg-purple/30;
+        @apply bg-[#24a0ed]/30;
     }
 
     img{
@@ -108,7 +108,7 @@ body {
     }
 
     #textEditor a, .blog-page-content a{
-        @apply text-purple underline hover:opacity-50;
+        @apply text-[#24a0ed] underline hover:opacity-50;
     }
 
     .tag{
