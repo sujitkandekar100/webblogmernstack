@@ -108,31 +108,52 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover What AI</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
+<div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-lg">
+  <div className="relative w-full max-w-lg flex rounded-lg">
+    {/* Search Bar with square left side and rounded right side */}
+    <SearchBar 
+      className="w-full p-3"
+      style={{
+        borderTopLeftRadius: '0px',  // Square on the top-left corner
+        borderBottomLeftRadius: '0px',  // Square on the bottom-left corner
+        borderTopRightRadius: '8px',  // Rounded on the top-right corner
+        borderBottomRightRadius: '8px',  // Rounded on the bottom-right corner
+        border: '1px solid #ddd'  // Adding a border around the input
+      }}
+    />
 
-            {/* Tabs */}
-            <nav className="my-8 flex justify-center items-center">
-                <ul className="flex space-x-4">
-                    <li 
-                        className={`relative px-6 py-2 rounded-md cursor-pointer border ${pageState === 'home' ? 'border-black' : 'border-transparent'}`} 
-                        onClick={() => setPageState('home')}
-                    >
-                        Home
-                        {pageState === 'home' && (
-                            <span className="absolute bottom-0 left-0 w-full h-1 bg-black transform scale-x-100"></span>
-                        )}
-                    </li>
-                    <li 
-                        className={`relative px-6 py-2 rounded-md cursor-pointer border ${pageState === 'trending blogs' ? 'border-black' : 'border-transparent'}`} 
-                        onClick={() => setPageState('trending blogs')}
-                    >
-                        Trending Blogs
-                        {pageState === 'trending blogs' && (
-                            <span className="absolute bottom-0 left-0 w-full h-1 bg-black transform scale-x-100"></span>
-                        )}
-                    </li>
-                </ul>
-            </nav>
+    {/* Filter Button with rounded right corners */}
+    <button 
+      className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
+      onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
+    >
+      <i className="fi fi-rr-list text-xl"></i>
+    <h6>Filter</h6>
+    </button>
 
+    {/* Dropdown for categories */}
+    {categoryDropdownVisible && (
+      <div 
+        className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10"
+        style={{ 
+          transform: 'translateX(-100%)' 
+        }}
+      >
+        <div className="flex gap-3 flex-wrap p-2">
+          {categories.map((category, index) => (
+            <button 
+              key={index} 
+              className="btn-light px-4 py-2  bg-gray-100 hover:bg-gray-200 rounded-lg"
+              onClick={() => loadBlogByCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</div>
             <section className="flex flex-col gap-10">
                 {/* Latest blogs */}
                 <InPageNavigation routes={[pageState, "trending blogs"]}>
@@ -188,6 +209,7 @@ const HomePage = () => {
                         )}
                     </div>
                 </InPageNavigation>
+                {/* Filters and trending blogs */}
             </section>
         </AnimationWrapper>
     );
