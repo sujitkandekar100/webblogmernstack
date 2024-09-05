@@ -108,7 +108,26 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover What AI</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
-            
+             <div className="flex items-center justify-center w-full p-4">
+      {/* Search bar container */}
+      <div className="flex border rounded-lg shadow-md w-full max-w-md lg:max-w-lg bg-white">
+        
+        {/* Search input */}
+        <div className="flex items-center w-full">
+          <input
+            type="text"
+            className="w-full px-4 py-2 text-sm text-gray-700 focus:outline-none"
+            placeholder="Search models"
+          />
+        </div>
+               <button
+          type="button"
+          className="px-4 py-2 text-gray-700 border-l focus:outline-none hover:bg-gray-100"
+        >
+          <i className="fi fi-rr-list text-xl"></i>
+        </button>
+      </div>
+    </div>
             {/* SearchBar and Category Button */}
             <div className="my-8 flex justify-center items-center gap-4 flex-wrap">
                 <div className="relative w-full max-w-lg flex">
