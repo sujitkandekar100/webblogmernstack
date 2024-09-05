@@ -111,12 +111,10 @@ const BlogPage = () => {
   {des}
 </p>
                 <div className="flex items-center gap-4 mb-2">
-                  <span className="btn-light py-2 text-xl">
-                    Views: {activity.total_reads}
-                  </span>
+                 
                   <Link
                     to="#"
-                    className="px-3 text-xl btn-dark py-2"
+                    className="px-3 text-xl btn-dark py-2 rounded-md"
                   >
                     Visit our site
                   </Link>
