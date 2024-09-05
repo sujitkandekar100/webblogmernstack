@@ -108,9 +108,9 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover What AI</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
-             <div className="flex items-center justify-center w-full p-4">
+               <div className="flex items-center justify-center w-full p-4">
       {/* Search bar container */}
-      <div className="flex border rounded-lg shadow-md w-full max-w-md lg:max-w-lg bg-white">
+      <div className="relative flex border rounded-lg shadow-md w-full max-w-md lg:max-w-lg bg-white">
         
         {/* Search input */}
         <div className="flex items-center w-full">
@@ -120,12 +120,32 @@ const HomePage = () => {
             placeholder="Search models"
           />
         </div>
-               <button
+
+        {/* Category/Filter button */}
+        <button
           type="button"
           className="px-4 py-2 text-gray-700 border-l focus:outline-none hover:bg-gray-100"
+          onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
         >
           <i className="fi fi-rr-list text-xl"></i>
         </button>
+
+        {/* Dropdown for categories */}
+        {categoryDropdownVisible && (
+          <div className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+            <div className="flex gap-3 flex-wrap p-2">
+              {categories.map((category, index) => (
+                <button 
+                  key={index} 
+                  className="px-4 py-2 text-sm text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md focus:outline-none"
+                  onClick={() => loadBlogByCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
             {/* SearchBar and Category Button */}
