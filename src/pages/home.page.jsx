@@ -128,6 +128,7 @@ const HomePage = () => {
       onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
     >
       <i className="fi fi-rr-list text-xl"></i>
+    <h6>Filter</h6>
     </button>
 
     {/* Dropdown for categories */}
@@ -145,7 +146,6 @@ const HomePage = () => {
               className="btn-light px-4 py-2  bg-gray-100 hover:bg-gray-200 rounded-lg"
               onClick={() => loadBlogByCategory(category)}
             >
-                <p>Filter</p>
               {category}
             </button>
           ))}
