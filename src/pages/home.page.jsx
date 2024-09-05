@@ -109,7 +109,7 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
 <div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-lg">
-  <div className="relative w-full max-w-lg flex">
+  <div className="relative w-full max-w-lg flex rounded-lg">
     {/* Search Bar with square left side and rounded right side */}
     <SearchBar 
       className="w-full p-3"
