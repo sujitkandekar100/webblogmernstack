@@ -56,7 +56,7 @@ body {
     }
 
     .btn-dark{
-        @apply whitespace-nowrap bg-black text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-opacity-80;
+        @apply whitespace-nowrap bg-black text-white rounded-lg py-3 px-6 text-xl capitalize hover:bg-opacity-80;
     }
 
     .btn-light{
@@ -64,7 +64,7 @@ body {
     }
 
     .input-box {
-        @apply w-[100%] rounded-md p-4 bg-grey pl-12 border border-grey focus:bg-transparent placeholder:text-black;
+        @apply w-[100%] rounded-lg p-4 bg-grey pl-12 border border-grey focus:bg-transparent placeholder:text-black;
     }
 
     input:disabled, input:disabled ~ .input-icon{
@@ -92,7 +92,7 @@ body {
     }
 
     .sidebar-link.active{
-        @apply text-black border-r-2 border-black pl-6 bg-grey/50 -ml-6 md:rounded-tl-lg md:rounded-bl-lg max-md:border-none;
+        @apply text-black border-r-2 border-black pl-6 bg-grey/50 -ml-6 md:rounded-lg md:rounded-lg max-md:border-none;
     }
 
     #textEditor h2, h2{
@@ -112,7 +112,7 @@ body {
     }
 
     .tag{
-        @apply p-3 bg-grey rounded-full px-6 capitalize;
+        @apply p-3 bg-grey rounded-lg px-6 capitalize;
     }
 
     .blog-title{
