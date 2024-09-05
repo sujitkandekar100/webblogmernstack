@@ -122,11 +122,11 @@ const BlogPage = () => {
                   </Link>
                 </div>
                 {/* Skip the first two tags and display the rest */}
-                <div className="flex flex-wrap gap-2 mt-4">
+                <div className="flex flex-wrap gap-2 mt-4 ">
                   {tags.slice(2).map((tag, index) => (
                     <span
                       key={index}
-                      className="btn-light py-1 text-base px-2"
+                      className="btn-light py-1 text-base px-2 rounded-md"
                     >
                       {tag}
                     </span>
