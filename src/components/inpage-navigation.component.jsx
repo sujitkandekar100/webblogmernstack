@@ -42,7 +42,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
 
     return (
         <>
-            <div className="relative mb-8 bg-white border-b border-grey flex flex-nowrap overflow-x-auto">
+            <div className="relative mb-8 bg-white border-b border-grey flex flex-nowrap overflow-x-auto  relative px-6 py-2 rounded-md cursor-pointer border ">
                 {/* Render each route as a tab */}
                 {routes.map((route, i) => {
                     return (
@@ -50,7 +50,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
                             ref={i === defaultActiveIndex ? activeTabRef : null} // Assign ref to the default active tab
                             key={i}
                             className={
-                                "p-4 px-5 capitalize relative px-6 py-2 rounded-md cursor-pointer border " +
+                                "p-4 px-5 capitalize  " +
                                 (inPageNavIndex === i ? "text-black " : "text-dark-grey ") + // Highlight active tab
                                 (defaultHidden.includes(route) ? " md:hidden " : "")
                             }
