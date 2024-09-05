@@ -66,7 +66,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
                 {/* Active tab underline */}
                 <hr
                     ref={activeTabLineRef}
-                    className="absolute bottom-0 duration-300 border-black"
+                    className="absolute bottom-0  relative px-6 py-2 rounded-md cursor-pointer border"
                     style={{
                         transitionProperty: "width, left", // Smooth transitions for the underline
                         borderBottomWidth: "2px"
