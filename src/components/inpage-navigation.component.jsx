@@ -50,7 +50,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
                             ref={i === defaultActiveIndex ? activeTabRef : null} // Assign ref to the default active tab
                             key={i}
                             className={
-                                "p-4 px-5 capitalize " +
+                                "p-4 px-5 capitalize relative px-6 py-2 rounded-md cursor-pointer border " +
                                 (inPageNavIndex === i ? "text-black " : "text-dark-grey ") + // Highlight active tab
                                 (defaultHidden.includes(route) ? " md:hidden " : "")
                             }
