@@ -114,7 +114,7 @@ const BlogPage = () => {
                  
                   <Link
                     to="#"
-                    className="px-3 text-xl btn-dark py-2 rounded-md"
+                    className="px-3 text-xl btn-dark py-2 rounded-lg"
                   >
                     Visit our site
                   </Link>
