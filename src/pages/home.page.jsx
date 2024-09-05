@@ -142,9 +142,10 @@ const HomePage = () => {
           {categories.map((category, index) => (
             <button 
               key={index} 
-              className="btn-light px-4 py-2 text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg"
+              className="btn-light px-4 py-2  bg-gray-100 hover:bg-gray-200 rounded-lg"
               onClick={() => loadBlogByCategory(category)}
             >
+                <p>Filter</p>
               {category}
             </button>
           ))}
