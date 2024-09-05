@@ -108,7 +108,7 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover What AI</h1>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Can Do?</h1>
             </div>
-<div className="my-8 flex justify-center items-center gap-4 flex-wrap">
+<div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-md">
   <div className="relative w-full max-w-lg flex">
     {/* Search Bar with square left side and rounded right side */}
     <SearchBar 
