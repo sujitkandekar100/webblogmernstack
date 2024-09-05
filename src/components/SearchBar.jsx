@@ -16,7 +16,7 @@ const SearchBar = ({ placeholder = "Search", className = "" }) => {
             <input
                 type="text"
                 placeholder={placeholder}
-                className="w-full bg-grey p-4 pl-6 pr-12 rounded-lg placeholder:text-dark-grey"
+                className="w-full bg-grey p-4 pl-6 pr-12 rounded-xl placeholder:text-dark-grey"
                 onKeyDown={handleSearch}
             />
             <i className="fi fi-rr-search absolute right-5 top-1/2 -translate-y-1/2 text-xl text-dark-grey"></i>
