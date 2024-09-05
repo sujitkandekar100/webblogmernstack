@@ -12,14 +12,14 @@ const SearchBar = ({ placeholder = "Search", className = "" }) => {
     };
 
     return (
-        <div className={`relative ${className}`}>
+        <div className={`relative w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl ${className}`}>
             <input
                 type="text"
                 placeholder={placeholder}
-                className="w-full bg-grey p-4 pl-6 pr-12 rounded-xl placeholder:text-dark-grey"
+                className="w-full bg-grey p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 pl-4 sm:pl-6 md:pl-8 pr-10 sm:pr-12 rounded-xl placeholder:text-dark-grey text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
                 onKeyDown={handleSearch}
             />
-            <i className="fi fi-rr-search absolute right-5 top-1/2 -translate-y-1/2 text-xl text-dark-grey"></i>
+            <i className="fi fi-rr-search absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-dark-grey"></i>
         </div>
     );
 };
