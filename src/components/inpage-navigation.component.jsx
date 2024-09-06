@@ -57,16 +57,16 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
                             >
                                 {route}
                             </button>
+                             <hr
+                    ref={activeTabLineRef}
+                    className="bg-white px-4 text-gray-800 font-semibold py-2 rounded-t border-t border-r border-l -mb-px"
+                />
                         );
                     })
                 }
 
                 {/* The active tab indicator line */}
-                <hr
-                    ref={activeTabLineRef}
-                    className="bg-white px-4 text-gray-800 font-semibold py-2 rounded-t border-t border-r border-l -mb-px"
-                />
-            </div>
+              
 
             {/* Rendering children based on the current tab */}
             {Array.isArray(children) ? children[inPageNavIndex] : children}
