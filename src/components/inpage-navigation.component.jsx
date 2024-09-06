@@ -48,19 +48,19 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
   return (
     <>
       {/* Tab Container */}
-      <div className="relative mb-8 border-b border-gray-200 flex flex-nowrap overflow-x-auto">
+      <div className="relative mb-8 border-b border-gray-200 flex flex-nowrap overflow-x-auto md:justify-center">
         {routes.map((route, i) => {
           return (
             <button
               ref={i === defaultActiveIndex ? activeTabRef : null}
               key={i}
               className={
-                "p-4 px-6 capitalize transition-all duration-300 ease-in-out " +
+                "p-2 sm:p-3 md:p-4 px-4 sm:px-6 md:px-8 capitalize text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300 ease-in-out " +
                 (inPageNavIndex === i
                   ? " text-black font-bold border border-gray-300 border-b-0"
                   : " text-gray-500 hover:text-gray-700 border-b-2 border-transparent") +
                 (defaultHidden.includes(route) ? " md:hidden " : " ") +
-                " rounded-md mx-2"
+                " rounded-md mx-1 sm:mx-2"
               }
               onClick={(e) => {
                 changePageState(e.target, i);
