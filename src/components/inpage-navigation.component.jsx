@@ -39,17 +39,17 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
     return (
         <>
             {/* Updated Navigation Bar */}
-            <div className="relative mb-8 bg-white border-b border-grey flex flex-nowrap overflow-x-auto justify-between">
+            <div className="relative mb-8 bg-white flex flex-nowrap overflow-x-auto justify-between space-x-2">
 
                 {routes.map((route, i) => {
                     return (
                         <button
                             ref={i === defaultActiveIndex ? activeTabRef : null}
                             key={i}
-                            className={`p-4 px-5 capitalize rounded-md transition-all duration-300 ease-in-out
+                            className={`p-4 px-5 capitalize rounded-full transition-all duration-300 ease-in-out
                                 ${inPageNavIndex === i
                                     ? "bg-blue-500 text-white font-bold"
-                                    : "bg-gray-100 text-dark-grey hover:bg-blue-200"} 
+                                    : "bg-gray-200 text-dark-grey hover:bg-blue-200"} 
                                 ${defaultHidden.includes(route) ? " md:hidden " : " "}`}
                             onClick={(e) => { changePageState(e.target, i) }}
                         >
