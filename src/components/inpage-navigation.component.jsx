@@ -65,7 +65,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
         {/* Tab Indicator Line */}
         <hr
           ref={activeTabLineRef}
-          className="absolute bottom-0 duration-300 border-b-4 transition-all"
+          className="absolute bottom-0 duration-300  transition-all"
         />
       </div>
 
