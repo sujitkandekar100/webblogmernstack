@@ -14,6 +14,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
   const changePageState = (btn, i) => {
     let { offsetWidth, offsetLeft } = btn;
 
+    // Set the style properties with a smooth transition
     activeTabLineRef.current.style.width = offsetWidth + "px";
     activeTabLineRef.current.style.left = offsetLeft + "px";
 
@@ -36,6 +37,14 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
     }
   }, [width]);
 
+  useEffect(() => {
+    // Ensure the initial position is set with the transition effect
+    if (inPageNavIndex === null) {
+      setInPageNavIndex(defaultActiveIndex);
+      changePageState(activeTabRef.current, defaultActiveIndex);
+    }
+  }, [inPageNavIndex, defaultActiveIndex]);
+
   return (
     <>
       {/* Tab Container */}
@@ -48,8 +57,8 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
               className={
                 "p-4 px-6 capitalize transition-all duration-300 ease-in-out " +
                 (inPageNavIndex === i
-                  ? " text-black font-bold  border border-gray-300 border-b-0" // Remove bottom border for active tab
-                  : " text-gray-500 hover:text-gray-700  border-transparent") + // No bottom border for inactive
+                  ? " text-black font-bold border border-gray-300 border-b-0"
+                  : " text-gray-500 hover:text-gray-700 border-b-2 border-transparent") +
                 (defaultHidden.includes(route) ? " md:hidden " : " ") +
                 " rounded-md mx-2"
               }
@@ -62,10 +71,10 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
           );
         })}
 
-        {/* Tab Indicator Line */}
+        {/* Tab Indicator Line with smoother transitions */}
         <hr
           ref={activeTabLineRef}
-          className="absolute bottom-0 duration-300 transition-all"
+          className="absolute bottom-0 duration-300 ease-in-out transition-all border-b-4 border-blue-500"
         />
       </div>
 
