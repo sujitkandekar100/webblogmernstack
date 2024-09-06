@@ -48,8 +48,8 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
               className={
                 "p-4 px-6 capitalize transition-all duration-300 ease-in-out " +
                 (inPageNavIndex === i
-                  ? "bg-white text-black font-bold border border-gray-300"
-                  : "bg-gray-100 text-gray-500 hover:text-gray-700") +
+                  ? " text-black font-bold border border-gray-300"
+                  : " text-gray-500 hover:text-gray-700") +
                 (defaultHidden.includes(route) ? " md:hidden " : " ") +
                 " rounded-md mx-2"
               }
