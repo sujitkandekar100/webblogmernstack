@@ -111,16 +111,7 @@ const HomePage = () => {
 <div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-lg">
   <div className="relative w-full max-w-lg flex rounded-lg">
     {/* Search Bar with square left side and rounded right side */}
-    <SearchBar 
-      className="w-full p-3"
-      style={{
-        borderTopLeftRadius: '0px',  // Square on the top-left corner
-        borderBottomLeftRadius: '0px',  // Square on the bottom-left corner
-        borderTopRightRadius: '8px',  // Rounded on the top-right corner
-        borderBottomRightRadius: '8px',  // Rounded on the bottom-right corner
-        border: '1px solid #ddd'  // Adding a border around the input
-      }}
-    />
+    <SearchBar/>
 
     {/* Filter Button with rounded right corners */}
     <button 
