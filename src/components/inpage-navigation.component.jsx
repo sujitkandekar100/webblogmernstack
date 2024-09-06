@@ -44,7 +44,7 @@ const InPageNavigation = ({ routes, defaultHidden = [ ], defaultActiveIndex = 0,
 
     return (
         <>
-            <div className="bg-white px-4 text-gray-800 font-semibold py-2 rounded-t border-t border-r border-l -mb-px">
+            <div className="">
                 
                 {
                     routes.map((route, i) => {
@@ -61,7 +61,7 @@ const InPageNavigation = ({ routes, defaultHidden = [ ], defaultActiveIndex = 0,
                     })
                 }
 
-                <hr ref={activeTabLineRef} className="absolute bottom-0 duration-300 rounded-t" />
+                <hr ref={activeTabLineRef} className="bg-white px-4 text-gray-800 font-semibold py-2 rounded-t border-t border-r border-l -mb-px" />
 
             </div>
 
