@@ -38,19 +38,20 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
 
   return (
     <>
-      {/* Modernized Navigation Container */}
-      <div className="relative mb-8 bg-white border-b border-gray-300 flex flex-nowrap overflow-x-auto shadow-md rounded-md">
+      {/* Tab Container */}
+      <div className="relative mb-8 bg-gray-100 border-b border-gray-200 flex flex-nowrap overflow-x-auto">
         {routes.map((route, i) => {
           return (
             <button
               ref={i === defaultActiveIndex ? activeTabRef : null}
               key={i}
               className={
-                "p-4 px-5 capitalize transition-all duration-300 ease-in-out " +
+                "p-4 px-6 capitalize transition-all duration-300 ease-in-out " +
                 (inPageNavIndex === i
-                  ? "text-black border-b-4 border-blue-500 "
-                  : "text-gray-500 hover:text-gray-800") +
-                (defaultHidden.includes(route) ? " md:hidden " : " ")
+                  ? "bg-white text-black font-bold border border-gray-300"
+                  : "bg-gray-100 text-gray-500 hover:text-gray-700") +
+                (defaultHidden.includes(route) ? " md:hidden " : " ") +
+                " rounded-md mx-2"
               }
               onClick={(e) => {
                 changePageState(e.target, i);
@@ -61,7 +62,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
           );
         })}
 
-        {/* Tab Indicator with smooth transition */}
+        {/* Tab Indicator Line */}
         <hr
           ref={activeTabLineRef}
           className="absolute bottom-0 duration-300 border-b-4 border-blue-500 transition-all"
