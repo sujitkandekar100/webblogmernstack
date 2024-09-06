@@ -39,7 +39,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
   return (
     <>
       {/* Tab Container */}
-      <div className="relative mb-8  border-b border-gray-200 flex flex-nowrap overflow-x-auto">
+      <div className="relative mb-8 border-b border-gray-200 flex flex-nowrap overflow-x-auto">
         {routes.map((route, i) => {
           return (
             <button
@@ -48,8 +48,8 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
               className={
                 "p-4 px-6 capitalize transition-all duration-300 ease-in-out " +
                 (inPageNavIndex === i
-                  ? " text-black font-bold border "
-                  : " text-gray-500 hover:text-gray-700") +
+                  ? " text-black font-bold border border-gray-300 border-b-0" // Remove bottom border for active tab
+                  : " text-gray-500 hover:text-gray-700 border-b-2 border-transparent") + // No bottom border for inactive
                 (defaultHidden.includes(route) ? " md:hidden " : " ") +
                 " rounded-md mx-2"
               }
@@ -65,7 +65,7 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
         {/* Tab Indicator Line */}
         <hr
           ref={activeTabLineRef}
-          className="absolute bottom-0 duration-300  transition-all"
+          className="absolute bottom-0 duration-300 transition-all"
         />
       </div>
 
