@@ -44,7 +44,7 @@ const InPageNavigation = ({ routes, defaultHidden = [ ], defaultActiveIndex = 0,
 
     return (
         <>
-            <div className="relative mb-8 bg-white border-b border-grey flex flex-nowrap overflow-x-auto rounded-t">
+            <div className="bg-white px-4 text-gray-800 font-semibold py-2 rounded-t border-t border-r border-l -mb-px">
                 
                 {
                     routes.map((route, i) => {
