@@ -12,16 +12,11 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
     let [width, setWidth] = useState(window.innerWidth);
 
     const changePageState = (btn, i) => {
-        let { offsetWidth, offsetLeft } = btn;
-
-        activeTabLineRef.current.style.width = offsetWidth + "px";
-        activeTabLineRef.current.style.left = offsetLeft + "px";
-
         setInPageNavIndex(i);
     };
 
     useEffect(() => {
-        if (width > 766 && inPageNavIndex != defaultActiveIndex) {
+        if (width > 766 && inPageNavIndex !== defaultActiveIndex) {
             changePageState(activeTabRef.current, defaultActiveIndex);
         }
 
@@ -30,41 +25,40 @@ const InPageNavigation = ({ routes, defaultHidden = [], defaultActiveIndex = 0, 
                 if (!isResizeEventAdded) {
                     setIsResizeEventAdded(true);
                 }
-
                 setWidth(window.innerWidth);
             });
         }
     }, [width]);
 
     return (
-        <>
-            {/* Updated Navigation Bar */}
-            <div className="relative mb-8 bg-white flex flex-nowrap overflow-x-auto justify-between space-x-2">
-
-                {routes.map((route, i) => {
-                    return (
-                        <button
+        <div className="p-8">
+            {/* Horizontal Tab Navigation */}
+            <ul className="grid grid-flow-col text-center text-gray-500 p-1">
+                {routes.map((route, i) => (
+                    <li key={i}>
+                        <a
+                            href={`#${route}`}
                             ref={i === defaultActiveIndex ? activeTabRef : null}
-                            key={i}
-                            className={`p-4 px-5 capitalize rounded-full transition-all duration-300 ease-in-out
+                            className={`flex justify-center py-4 transition-all duration-300 ease-in-out
                                 ${inPageNavIndex === i
-                                    ? "bg-blue-500 text-white font-bold"
-                                    : "bg-gray-200 text-dark-grey hover:bg-blue-200"} 
-                                ${defaultHidden.includes(route) ? " md:hidden " : " "}`}
-                            onClick={(e) => { changePageState(e.target, i) }}
+                                    ? "bg-white border-l border-t border-r border-gray-100 rounded-tl-lg rounded-tr-lg text-black"
+                                    : "hover:bg-gray-100"} `}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                changePageState(e.target, i);
+                            }}
                         >
                             {route}
-                        </button>
-                    );
-                })}
+                        </a>
+                    </li>
+                ))}
+            </ul>
 
-                {/* Active Tab Underline */}
-                <hr ref={activeTabLineRef} className="absolute bottom-0 h-1 bg-blue-500 transition-all duration-300 ease-in-out" />
+            {/* Content Box Below Navigation */}
+            <div className="bg-white shadow border border-gray-100 p-8 text-gray-700 rounded-lg -mt-2">
+                {Array.isArray(children) ? children[inPageNavIndex] : children}
             </div>
-
-            {/* Render Children based on the active tab */}
-            {Array.isArray(children) ? children[inPageNavIndex] : children}
-        </>
+        </div>
     );
 };
 
