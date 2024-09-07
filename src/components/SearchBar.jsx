@@ -6,9 +6,10 @@ const categories = [
   "Programming", "Hollywood", "Film Making", "Social Media", "Cooking", "Tech", "Finance", "Travel"
 ];
 
-const SearchBar = ({ placeholder = "Search", className = "", onCategorySearch }) => {
+const SearchBar = ({ placeholder = "Search", className = "" }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const navigate = useNavigate();
 
     // Handle input change and filter suggestions
     const handleInputChange = (e) => {
@@ -29,24 +30,14 @@ const SearchBar = ({ placeholder = "Search", className = "", onCategorySearch })
     // Handle selecting a suggestion or pressing Enter
     const handleSearch = (e) => {
         if (e.keyCode === 13 && searchQuery.length) {
-            const matchedCategory = categories.find(category => 
-                category.toLowerCase() === searchQuery.toLowerCase()
-            );
-            if (matchedCategory) {
-                // Trigger category search
-                onCategorySearch(matchedCategory);
-            } else {
-                // If it's not a category, navigate to the search results page
-                navigate(`/search/${searchQuery}`);
-            }
+            navigate(`/search/${searchQuery}`);
             setSuggestions([]); // Clear suggestions after search
         }
     };
 
     const handleSuggestionClick = (suggestion) => {
         setSearchQuery(suggestion);
-        // Trigger category-based search
-        onCategorySearch(suggestion);
+        navigate(`/search/${suggestion}`);
         setSuggestions([]); // Clear suggestions after selection
     };
 
@@ -82,4 +73,3 @@ const SearchBar = ({ placeholder = "Search", className = "", onCategorySearch })
 };
 
 export default SearchBar;
-
