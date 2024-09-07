@@ -117,87 +117,98 @@ const HomePage = () => {
             </div>
 
             {/* Search and Filter Section */}
-            <div className="my-8 flex justify-center items-center gap-4 flex-wrap rounded-lg">
-                <div className="relative w-full max-w-lg flex rounded-lg">
-                    {/* Search Bar */}
-                    <SearchBar />
-
-                    {/* Filter Button */}
-                    <button
-                        className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
+            <div className="flex flex-col sm:flex-row justify-between items-center my-10 gap-4 px-5 md:px-10">
+                {/* Search Bar with category search functionality */}
+                <SearchBar
+                    placeholder="Search by title, tags, or category..."
+                    onCategorySearch={loadBlogByCategory} // Passing the category search handler
+                    className="max-w-xs sm:max-w-md lg:max-w-xl xl:max-w-2xl"
+                />
+                {/* Category Dropdown (existing code) */}
+                <div className="relative">
+                    <div
+                        className="relative flex justify-center items-center bg-gray-100 rounded-lg cursor-pointer text-sm sm:text-base text-gray-800 select-none px-5 py-3 focus:outline-none hover:bg-gray-200 transition-all duration-300"
                         onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
                     >
-                        <i className="fi fi-rr-list text-xl"></i>
-                        <h6 className="ml-2 hidden sm:block">Filter</h6>
-                    </button>
+                        <i className="fi fi-rr-interlining leading-none mr-2" />
+                        Category
+                        <i className="fi fi-rr-angle-small-down leading-none ml-2" />
+                    </div>
 
-                    {/* Dropdown for Categories */}
                     {categoryDropdownVisible && (
-                        <div ref={dropdownRef} className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
-                            <div className="flex gap-3 flex-wrap p-2">
-                                {categories.map((category, index) => {
-                                    const isActive = pageState === category.toLowerCase();
-                                    return (
-                                        <button
-                                            key={index}
-                                            className={`btn-light px-4 py-2 rounded-lg ${isActive ? "bg-black text-white" : "hover:bg-gray-10"}`}
-                                            onClick={() => loadBlogByCategory(category)}
-                                        >
-                                            {category}
-                                        </button>
-                                    );
-                                })}
-                            </div>
+                        <div
+                            ref={dropdownRef}
+                            className="absolute left-0 z-10 mt-2 bg-white rounded-lg shadow-md overflow-hidden border border-gray-300 w-40"
+                        >
+                            <ul className="max-h-60 overflow-y-auto">
+                                {categories.map((category, index) => (
+                                    <li
+                                        key={index}
+                                        onClick={() => loadBlogByCategory(category)}
+                                        className={`p-3 text-sm sm:text-base text-gray-800 cursor-pointer select-none hover:bg-gray-100 ${
+                                            pageState === category.toLowerCase() ? "bg-gray-200" : ""
+                                        }`}
+                                    >
+                                        {category}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     )}
                 </div>
             </div>
 
-            {/* Blog Content Section */}
-            <section className="flex flex-col gap-10">
-                {/* Latest Blogs and Trending Blogs */}
-                <InPageNavigation routes={[pageState, "trending blogs"]}>
-                    <div className="flex gap-3 flex-wrap">
-                        {/* Latest Blogs */}
-                        {blogs === null ? (
-                            <Loader />
-                        ) : blogs.results.length ? (
-                            blogs.results.map((blog, i) => (
-                                <AnimationWrapper
-                                    transition={{ duration: 1, delay: i * 0.1 }}
-                                    key={i}
-                                >
-                                    <BlogPostCard content={blog} author={blog.author.personal_info} />
-                                </AnimationWrapper>
-                            ))
-                        ) : (
-                            <NoDataMessage message="No blogs published" />
-                        )}
-                        <LoadMoreDataBtn
-                            state={blogs}
-                            fetchDataFun={pageState === "home" ? fetchLatestBlogs : fetchBlogsByCategory}
-                        />
-                    </div>
+            {/* Trending Blogs */}
+            <div className="mt-10">
+                <div className="text-center mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-semibold">Trending Blogs</h2>
+                </div>
 
-                    {/* Trending Blogs */}
-                    <div className="w-full">
-                        {trendingBlogs === null ? (
-                            <Loader />
-                        ) : trendingBlogs.length ? (
-                            trendingBlogs.map((blog, i) => (
-                                <AnimationWrapper
-                                    transition={{ duration: 1, delay: i * 0.1 }}
-                                    key={i}
-                                >
-                                    <MinimalBlogPost blog={blog} index={i} />
-                                </AnimationWrapper>
-                            ))
-                        ) : (
-                            <NoDataMessage message="No trending blogs" />
-                        )}
-                    </div>
-                </InPageNavigation>
-            </section>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 md:px-10">
+                    {!trendingBlogs && <Loader />}
+                    {trendingBlogs && trendingBlogs.length > 0 ? (
+                        trendingBlogs.map((blog, index) => (
+                            <MinimalBlogPost key={index} blog={blog} />
+                        ))
+                    ) : (
+                        <NoDataMessage message="No trending blogs available." />
+                    )}
+                </div>
+            </div>
+
+            {/* Blog Posts Section */}
+            <div className="mt-10">
+                <div className="text-center mb-6">
+                    <h2 className="text-2xl sm:text-3xl font-semibold">{pageState === "home" ? "Latest Blogs" : "Blogs in " + pageState}</h2>
+                </div>
+
+                {/* Blog Post Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 md:px-10">
+                    {!blogs && <Loader />}
+                    {blogs && blogs.length > 0 ? (
+                        blogs.map((blog, index) => (
+                            <BlogPostCard key={index} blog={blog} />
+                        ))
+                    ) : (
+                        <NoDataMessage message="No blogs found." />
+                    )}
+                </div>
+            </div>
+
+            {/* Load More Button */}
+            <div className="mt-10 text-center">
+                {blogs && blogs.length > 0 && (
+                    <LoadMoreDataBtn
+                        onClick={() => {
+                            if (pageState === "home") {
+                                fetchLatestBlogs({ page: blogs.length / 12 + 1 });
+                            } else {
+                                fetchBlogsByCategory({ page: blogs.length / 12 + 1 });
+                            }
+                        }}
+                    />
+                )}
+            </div>
         </AnimationWrapper>
     );
 };
