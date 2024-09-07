@@ -104,18 +104,20 @@ const HomePage = () => {
                     {/* Search Bar */}
                     <SearchBar />
 
-                    {/* Filter Button */}
                     <button
-                        className="bg-white p-3 rounded-lg border border-gray-300 "
-                        onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
-                    >
-                        <i className="fi fi-rr-list text-xl"></i>
-                        <h6 className="ml-2">Filter</h6>
-                    </button>
+            className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
+            onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
+        >
+            {/* Icon always visible */}
+            <i className="fi fi-rr-list text-xl"></i>
+
+            {/* Heading hidden on small screens */}
+            <h6 className="ml-2 hidden sm:block">Filter</h6>
+        </button>
 
                     {/* Dropdown for Categories */}
                     {categoryDropdownVisible && (
-                        <div className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+                        <div className="absolute top-full right-0 mt-2 w-full max-w-xs  border border-gray-300 rounded-lg shadow-lg z-10">
                             <div className="flex gap-3 flex-wrap p-2">
                                 {categories.map((category, index) => {
                                     // Check if this category is selected
