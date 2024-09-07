@@ -6,7 +6,7 @@ const categories = [
   "Programming", "Hollywood", "Film Making", "Social Media", "Cooking", "Tech", "Finance", "Travel"
 ];
 
-const SearchBar = ({ placeholder = "Search", className = "" }) => {
+const SearchBar = ({ placeholder = "Search", className = "", onCategorySearch }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const navigate = useNavigate();
@@ -30,6 +30,8 @@ const SearchBar = ({ placeholder = "Search", className = "" }) => {
     // Handle selecting a suggestion or pressing Enter
     const handleSearch = (e) => {
         if (e.keyCode === 13 && searchQuery.length) {
+            // Trigger search with both category and search term
+            onCategorySearch(searchQuery);
             navigate(`/search/${searchQuery}`);
             setSuggestions([]); // Clear suggestions after search
         }
@@ -37,6 +39,7 @@ const SearchBar = ({ placeholder = "Search", className = "" }) => {
 
     const handleSuggestionClick = (suggestion) => {
         setSearchQuery(suggestion);
+        onCategorySearch(suggestion); // Pass selected category to the parent
         navigate(`/search/${suggestion}`);
         setSuggestions([]); // Clear suggestions after selection
     };
@@ -56,7 +59,7 @@ const SearchBar = ({ placeholder = "Search", className = "" }) => {
 
             {/* Autocomplete Suggestions */}
             {suggestions.length > 0 && (
-                <ul className="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-60 overflow-y-auto shadow-lg z-10">
+                <ul className="absolute top-full left-0 w-full  border border-gray-300 rounded-lg mt-1 max-h-60 overflow-y-auto shadow-lg z-10">
                     {suggestions.map((suggestion, index) => (
                         <li
                             key={index}
