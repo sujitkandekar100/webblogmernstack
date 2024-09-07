@@ -68,14 +68,16 @@ const HomePage = () => {
     const loadBlogByCategory = (category) => {
         setBlogs(null);
         setCategoryDropdownVisible(false);
-        if (pageState === category) {
+
+        // Toggle category selection, if already selected, return to home
+        if (pageState === category.toLowerCase()) {
             setPageState("home");
-            return;
+        } else {
+            setPageState(category.toLowerCase());
         }
-        setPageState(category.toLowerCase());
     };
 
-    // Click outside handler
+    // Click outside handler for closing the dropdown
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
             setCategoryDropdownVisible(false); // Close dropdown when clicking outside
