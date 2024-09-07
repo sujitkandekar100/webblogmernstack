@@ -117,15 +117,20 @@ const HomePage = () => {
                     {categoryDropdownVisible && (
                         <div className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
                             <div className="flex gap-3 flex-wrap p-2">
-                                {categories.map((category, index) => (
-                                    <button
-                                        key={index}
-                                        className="btn-light px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg"
-                                        onClick={() => loadBlogByCategory(category)}
-                                    >
-                                        {category}
-                                    </button>
-                                ))}
+                                {categories.map((category, index) => {
+                                    // Check if this category is selected
+                                    const isActive = pageState === category.toLowerCase();
+
+                                    return (
+                                        <button
+                                            key={index}
+                                            className={`btn-light px-4 py-2 rounded-lg ${isActive ? "bg-black text-white" : "bg-gray-100 hover:bg-gray-200"}`}
+                                            onClick={() => loadBlogByCategory(category)}
+                                        >
+                                            {category}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
                     )}
