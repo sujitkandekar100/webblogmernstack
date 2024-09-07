@@ -140,7 +140,7 @@ const HomePage = () => {
                                     return (
                                         <button
                                             key={index}
-                                            className={`btn-light px-4 py-2 rounded-lg ${isActive ? "bg-black text-white" : "bg-gray-100 hover:bg-gray-200"}`}
+                                            className={`btn-light px-4 py-2 rounded-lg ${isActive ? "bg-black text-white" : "hover:bg-gray-200"}`}
                                             onClick={() => loadBlogByCategory(category)}
                                         >
                                             {category}
