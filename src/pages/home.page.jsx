@@ -101,7 +101,7 @@ const HomePage = () => {
 
                     {/* Filter Button */}
                     <button
-                        className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
+                        className="bg-white p-3 rounded-lg  flex items-center "
                         onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
                     >
                         <i className="fi fi-rr-list text-xl"></i>
@@ -112,15 +112,14 @@ const HomePage = () => {
                     {categoryDropdownVisible && (
                         <div className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
                             <div className="flex gap-3 flex-wrap p-2">
-                                {categories.map((category, index) => (
-                                    <button
-                                        key={index}
-                                        className="btn-light px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg"
-                                        onClick={() => loadBlogByCategory(category)}
-                                    >
-                                        {category}
-                                    </button>
-                                ))}
+                                 {categories.map((category, i) => {
+                                    return (
+                                        <button onClick={loadBlogByCategory} className={"tag " + (pageState == category ? " bg-black text-white " : " ")} 
+                                        key={i}>
+                                            {category}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
                     )}
