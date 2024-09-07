@@ -1,5 +1,5 @@
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import AnimationWrapper from "../common/page-animation";
 import InPageNavigation from "../components/inpage-navigation.component";
 import Loader from "../components/loader.component";
@@ -16,6 +16,7 @@ const HomePage = () => {
     const [trendingBlogs, setTrendingBlogs] = useState(null);
     const [pageState, setPageState] = useState("home");
     const [categoryDropdownVisible, setCategoryDropdownVisible] = useState(false);
+    const dropdownRef = useRef(null); // Create ref for dropdown
 
     // Categories for filtering blogs
     const categories = [
@@ -63,21 +64,36 @@ const HomePage = () => {
             .catch((err) => console.log(err));
     };
 
-    // Loading blogs based on selected category or switching to home on double-click
+    // Loading blogs based on selected category
     const loadBlogByCategory = (category) => {
         setBlogs(null);
         setCategoryDropdownVisible(false);
-
-        const lowerCaseCategory = category.toLowerCase();
-
-        if (pageState === lowerCaseCategory) {
-            // If the category is clicked twice, reset to home
+        if (pageState === category) {
             setPageState("home");
-        } else {
-            // Load the selected category's blogs
-            setPageState(lowerCaseCategory);
+            return;
+        }
+        setPageState(category.toLowerCase());
+    };
+
+    // Click outside handler
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setCategoryDropdownVisible(false); // Close dropdown when clicking outside
         }
     };
+
+    // Adding event listener for click outside
+    useEffect(() => {
+        if (categoryDropdownVisible) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [categoryDropdownVisible]);
 
     // Fetch data on initial mount or when pageState changes
     useEffect(() => {
@@ -104,25 +120,21 @@ const HomePage = () => {
                     {/* Search Bar */}
                     <SearchBar />
 
+                    {/* Filter Button */}
                     <button
-            className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
-            onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
-        >
-            {/* Icon always visible */}
-            <i className="fi fi-rr-list text-xl"></i>
-
-            {/* Heading hidden on small screens */}
-            <h6 className="ml-2 hidden sm:block">Filter</h6>
-        </button>
+                        className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
+                        onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
+                    >
+                        <i className="fi fi-rr-list text-xl"></i>
+                        <h6 className="ml-2 hidden sm:block">Filter</h6>
+                    </button>
 
                     {/* Dropdown for Categories */}
                     {categoryDropdownVisible && (
-                        <div className="absolute top-full right-0 mt-2 w-full max-w-xs  border border-gray-300 rounded-lg shadow-lg z-10">
+                        <div ref={dropdownRef} className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
                             <div className="flex gap-3 flex-wrap p-2">
                                 {categories.map((category, index) => {
-                                    // Check if this category is selected
                                     const isActive = pageState === category.toLowerCase();
-
                                     return (
                                         <button
                                             key={index}
