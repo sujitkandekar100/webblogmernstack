@@ -106,7 +106,7 @@ const HomePage = () => {
 
                     {/* Filter Button */}
                     <button
-                        className="bg-white p-3 rounded-lg border border-gray-300 flex items-center justify-center"
+                        className="bg-white p-3 rounded-lg border border-gray-300 "
                         onClick={() => setCategoryDropdownVisible(!categoryDropdownVisible)}
                     >
                         <i className="fi fi-rr-list text-xl"></i>
