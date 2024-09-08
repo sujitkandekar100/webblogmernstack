@@ -64,7 +64,7 @@ const BlogInteraction = () => {
         <>
             <Toaster />
             {/* Responsive Container */}
-            <div className="max-w-3xl mx-auto p-4 bg-white rounded-3xl shadow-lg border border-gray-200">
+            <div className="max-w-full mx-auto p-4 bg-white rounded-3xl shadow-lg border border-gray-200">
                 <div className="flex flex-wrap gap-4 justify-between items-center md:gap-6">
                     
                     {/* Like and Comment Section */}
@@ -97,7 +97,7 @@ const BlogInteraction = () => {
                             onClick={handleShare}
                             className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-gray-200 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]"
                         >
-                            <i className="fi fi-rr-share-square"></i>
+                          <i class="fi fi-rs-code-simple"></i>               
                         </button>
                         <a
                             href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(location.href)}`}
@@ -113,7 +113,7 @@ const BlogInteraction = () => {
                             rel="noopener noreferrer"
                             className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-gray-200 hover:bg-[#24a0ed]/20 hover:text-[#24a0ed]"
                         >
-                            <i className="fi fi-brands-twitter-alt text-base md:text-xl"></i>
+                            <i className="fi fi-brands-twitter-alt text-base md:text-xl border-gray-200"></i>
                         </a>
                     </div>
                 </div>
