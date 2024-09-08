@@ -63,7 +63,7 @@ const BlogInteraction = () => {
     return (
         <>
             <Toaster />
-            <div className="border-grey my-2 rounded-lg" />
+            <div className="border-grey my-2 rounded-lg" >
 
             <div className="flex gap-6 justify-between">
                 <div className="flex gap-3 items-center">
