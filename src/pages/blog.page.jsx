@@ -146,7 +146,7 @@ const BlogPage = () => {
                 ))}
             </div>
 
-<div className="mt-20">
+<div className="mt-8">
     <BlogInteraction />
 </div>
 
