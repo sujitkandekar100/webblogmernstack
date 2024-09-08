@@ -133,7 +133,9 @@ const BlogPage = () => {
               </div>
             </div>
 
-            <BlogInteraction />
+<div className="mt-20 ">
+    <BlogInteraction />
+</div>
 
             <div className="my-12 font-gelasio blog-page-content">
               {content.length > 0 &&
