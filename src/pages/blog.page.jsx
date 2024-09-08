@@ -144,7 +144,9 @@ const BlogPage = () => {
                 ))}
             </div>
 
-            <BlogInteraction />
+<div className="mt-20">
+    <BlogInteraction />
+</div>
 
             {similarBlogs != null && similarBlogs.length > 0 && (
               <>
