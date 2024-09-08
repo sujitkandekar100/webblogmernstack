@@ -15,20 +15,20 @@ const HomePage = () => {
     const [blogs, setBlogs] = useState(null);
     const [trendingBlogs, setTrendingBlogs] = useState(null);
     const [pageState, setPageState] = useState("home");
-    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null); // Single category
     const [categoryDropdownVisible, setCategoryDropdownVisible] = useState(false);
-    const dropdownRef = useRef(null); // Create ref for dropdown
+    const dropdownRef = useRef(null);
 
     // Categories for filtering blogs
     const categories = [
         "Programming", "Hollywood", "Film Making", "Social Media", "Cooking", "Tech", "Finance", "Travel"
     ];
 
-    // Fetching blogs based on search query and/or selected categories
+    // Fetching blogs based on search query and/or selected category
     const fetchBlogs = ({ page = 1 }) => {
         const params = {
-            tag: pageState, // General tag (category or search term)
-            categories: selectedCategories,
+            tag: pageState,
+            category: selectedCategory, // Only one category
             page
         };
 
@@ -60,17 +60,15 @@ const HomePage = () => {
         setPageState(query.toLowerCase());
     };
 
-    // Handle category selection (multiple selection)
-    const toggleCategorySelection = (category) => {
+    // Handle single category selection
+    const selectCategory = (category) => {
         const lowerCategory = category.toLowerCase();
-        setSelectedCategories(prevState =>
-            prevState.includes(lowerCategory)
-                ? prevState.filter(cat => cat !== lowerCategory)
-                : [...prevState, lowerCategory]
+        setSelectedCategory(prevState =>
+            prevState === lowerCategory ? null : lowerCategory // Deselect if already selected
         );
     };
 
-    // Effect to load data when pageState or selectedCategories change
+    // Effect to load data when pageState or selectedCategory change
     useEffect(() => {
         if (pageState === "home") {
             fetchBlogs({ page: 1 });
@@ -79,7 +77,7 @@ const HomePage = () => {
         }
 
         if (!trendingBlogs) fetchTrendingBlogs();
-    }, [pageState, selectedCategories]);
+    }, [pageState, selectedCategory]);
 
     return (
         <AnimationWrapper>
@@ -109,12 +107,12 @@ const HomePage = () => {
                         <div ref={dropdownRef} className="absolute top-full right-0 mt-2 w-full max-w-xs bg-white border border-gray-300 rounded-lg shadow-lg z-10">
                             <div className="flex gap-3 flex-wrap p-2">
                                 {categories.map((category, index) => {
-                                    const isActive = selectedCategories.includes(category.toLowerCase());
+                                    const isActive = selectedCategory === category.toLowerCase();
                                     return (
                                         <button
                                             key={index}
                                             className={`btn-light px-4 py-2 rounded-lg ${isActive ? "bg-black text-white" : "hover:bg-gray-50"}`}
-                                            onClick={() => toggleCategorySelection(category)}
+                                            onClick={() => selectCategory(category)}
                                         >
                                             {category}
                                         </button>
