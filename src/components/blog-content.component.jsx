@@ -8,6 +8,20 @@ const Img = ({ url }) => {
     )
 }
 
+
+const Video = ({ url, width = "100%", height = "315" }) => {
+    return (
+        <div className="video-container" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            <iframe
+                src={url}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                frameBorder="0"
+                allowFullScreen
+                title="YouTube Video"
+            />
+        </div>
+    )
+}
 const Quote = ({ quote, caption }) => {
     return (
         <div className="bg-[#24a0ed]/10 p-3 pl-5 border-l-4 border-[#24a0ed]">
