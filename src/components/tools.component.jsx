@@ -5,7 +5,6 @@ import Header from "@editorjs/header";
 import Quote from "@editorjs/quote";
 import Marker from "@editorjs/marker";
 import InlineCode from "@editorjs/inline-code";
-import VideoTool from "@editorjs/video"; // Example video tool import
 
 import { uploadImage } from "../common/aws";
 
@@ -38,7 +37,16 @@ const uploadImageByURL = (e) => {
 };
 
 export const tools = {
-    embed: Embed,
+    embed: {
+        class: Embed,
+        config: {
+            services: {
+                youtube: true,
+                vimeo: true,
+                // You can add other services here if needed
+            }
+        }
+    },
     list: {
         class: List,
         inlineToolbar: true
@@ -49,15 +57,6 @@ export const tools = {
             uploader: {
                 uploadByUrl: uploadImageByURL,
                 uploadByFile: uploadImageByFile,
-            }
-        }
-    },
-    video: {
-        class: VideoTool, // Adding video tool
-        config: {
-            uploader: {
-                uploadByUrl: uploadImageByURL, // Assuming you have a method to handle video URLs
-                uploadByFile: uploadImageByFile // Optional, if you're allowing video uploads
             }
         }
     },
