@@ -76,8 +76,9 @@ const BlogContent = ({ block }) => {
         return <List style={data.style} items={data.items} />;
     }
 
-    if (type === "video") {
-        return <Video url={data.file.url} />;
+    // Handle embedded videos
+    if (type === "embed" && data.service === "youtube" || data.service === "vimeo") {
+        return <Video url={data.embed} />;
     }
 
     return null;
