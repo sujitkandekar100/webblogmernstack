@@ -5,7 +5,7 @@ const BlogPostCard = ({ content, author }) => {
         <Link to={`/blog/${id}`} className="shadow-md rounded-lg flex flex-col text-left text-[14px] min-h-[100px] max-w-[250px]" >
             {/* Image Section */}
             <img
-                className="w-full h-40 sm:h-48 rounded-t-lg object-cover"
+                className="w-full h-50 sm:h-48 rounded-t-lg object-cover"
                 loading="lazy"
                 alt={title}
                 src={banner}
