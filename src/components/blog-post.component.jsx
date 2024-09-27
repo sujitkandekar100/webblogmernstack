@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+
 const BlogPostCard = ({ content, author }) => {
     let { title, des, banner, tags, activity: { total_likes }, blog_id: id } = content;
+
     return (
-        <Link to={`/blog/${id}`} className="shadow-md rounded-lg flex flex-col text-left text-[14px] min-h-[100px] max-w-[250px]" >
+        <Link to={`/blog/${id}`} className="shadow-md rounded-lg flex flex-col text-left text-[14px] min-h-[100px] max-w-[250px]">
             {/* Image Section */}
             <img
                 className="w-full h-40 sm:h-48 rounded-t-lg object-cover"
@@ -13,22 +16,19 @@ const BlogPostCard = ({ content, author }) => {
 
             {/* Content Section */}
             <div className="p-4 flex flex-col justify-end h-full overflow-hidden">
-                <div>  
-     <div className="flex gap-2 mt-1">
-    <b className="text-xl font-bold block leading-tight">{title}</b>
-    <div className="flex items-center space-x-1">
-        <i className="fi fi-ss-arrow-circle-up text-base "></i>
-    
-        <span className="leading-none">({total_likes})</span>
-    </div>
-</div>
-
+                <div>
+                    <div className="flex gap-2 mt-1">
+                        <b className="text-xl font-bold block leading-tight">{title}</b>
+                        <div className="flex items-center space-x-1">
+                            <i className="fi fi-ss-arrow-circle-up text-base "></i>
+                            <span className="leading-none">({total_likes})</span>
+                        </div>
+                    </div>
 
                     <div className="flex justify-between text-gray-600 mt-2">
-                        <span className="flex  gap-2 text-dark-grey ">
-                            <span className="btn-light py-1 text-sm px-2">{tags[0]}</span>
-                        </span>
-                        <span className=" btn-light py-1 text-sm px-2">{tags[1]}</span>
+                        {tags.map((tag, index) => (
+                            <span key={index} className="btn-light py-1 text-sm px-2">{tag}</span>
+                        ))}
                     </div>
 
                     <p className="my-3 text-base font-gelasio leading-6 line-clamp-3 overflow-hidden text-ellipsis">
@@ -39,4 +39,5 @@ const BlogPostCard = ({ content, author }) => {
         </Link>
     );
 };
+
 export default BlogPostCard;
