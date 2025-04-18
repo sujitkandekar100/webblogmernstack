@@ -23,7 +23,7 @@ const BlogEditor = () => {
 
     let navigate = useNavigate();
 
-    // useEffect
+    // useEffect hook
     useEffect(() => {
         if(!textEditor.isReady){
             setTextEditor(new EditorJS({
