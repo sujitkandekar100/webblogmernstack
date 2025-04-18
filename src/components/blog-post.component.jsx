@@ -14,7 +14,7 @@ const BlogPostCard = ({ content, author }) => {
                 src={banner}
             />
 
-            {/* Content Section */}
+            {/* following Content Section */}
             <div className="p-4 flex flex-col justify-end h-full overflow-hidden">
                 <div>
                     <div className="flex gap-2 mt-1">
