@@ -212,7 +212,6 @@ const BlogEditor = () => {
                         <hr className="w-full opacity-10 my-5" />
 
                         <div id="textEditor" className="font-gelasio"></div>
-
                     </div>
                 </section>
             </AnimationWrapper>
